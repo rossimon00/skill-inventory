@@ -1,0 +1,200 @@
+/* You can add global styles to this file, and also import other style files */
+.shadow{
+    background-color: #eddebe00 !important;
+    -webkit-box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
+    box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
+    border: #0a2963 solid !important;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+input{
+    background-color: #d4b269 !important;
+}
+
+input:focus{
+    background-color: #d4b269 !important;
+    color: #0a2963;
+}
+
+input:hover{
+    background-color: #d4b269 !important;
+}
+
+label{
+    margin-top: 1%;
+}
+
+*{
+    font-family: 'Playfair Display', serif;
+  
+}
+
+label{
+    font-weight: 1000;
+}
+
+button.right{
+    float: right;
+}
+
+.hovereffect {
+    
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background: #42b078;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
+    box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
+
+  }
+  
+  @media only screen and (max-width: 1000px)
+  {
+    .hovereffect{
+      height: 40%;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) and (max-width:1500px)
+  {
+    .hovereffect{
+      height: 80%;
+    }
+  }
+
+  .hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    padding: 50px 20px;
+  }
+
+  .col{
+    padding-left: 0%;
+    padding-right: 0%;
+    margin: 0%;
+  }
+
+  p{
+    font-size: 1vw;
+
+  }
+  /* CSS */
+  .button-56 {
+    margin-bottom: 2%;
+    background-color: #fee6e3;
+    border: 2px solid #023472;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color:  #0a2963;
+    font-weight: 1000;
+    cursor: pointer;
+    height: 3vw;
+    display: flex;
+    font-size: 1.5vw;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-56:after {
+    background-color: #d4b269;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 101%;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+
+
+  
+  .button-56:hover:after {
+    transform: translate(0, 0);
+  }
+  
+  .button-56:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+  
+  .button-56:hover {
+    background-color: #eddebe67 !important;
+    cursor:auto;
+    align-items: flex-start ;
+    font-size: 1.7vw;
+    outline: 0;
+    border: 3px solid;
+    transition: 0.2s;
+  }
+  
+  .hide{
+    margin-top: 9%;
+    display: none;
+  }
+
+  .button-56:hover .hide {
+    display: flex;
+    justify-content: center;
+    color: #0a2963;
+    font-size: 1vw;
+    transition: 0.2s;
+  }
+  
+
+  @media (min-width: 768px) {
+    .button-56 {
+      padding: 0 40px;
+    }
+  }
+  
+  .form-control img{
+    height:10vw;
+    width: 11vw;
+    position: absolute;
+    bottom: 10px;
+    mix-blend-mode:darken;
+    
+  }
+
+  .button-56:hover img{
+    height: 11vw;
+    width: 12vw;
+  }
+
+  .container-fluid{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80% !important;
+    height: 60%;
+    border-radius: 20px;
+    padding: 0% !important;
+    background-color: #eddebe;
+  }

@@ -1,0 +1,17 @@
+
+input{
+    background-color: #d4b269 !important;
+}
+
+input:focus{
+    background-color: #d4b269 !important;
+    color: #0a2963;
+}
+
+.button-56::after{
+    height: 105%;
+}
+
+button:hover{
+    cursor: pointer;
+}

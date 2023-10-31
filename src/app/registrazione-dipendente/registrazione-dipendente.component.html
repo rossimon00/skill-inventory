@@ -1,0 +1,79 @@
+
+
+
+
+<div class="container">
+    <form  (ngSubmit)="onSubmit()" autocomplete="new-password">
+        <!-- codice fiscale -->
+        <div class="row">
+        <div class="col">
+        <div class="form-group">
+            <label for="codiceFiscale" >Codice Fiscale:</label>
+            <input #codiceFiscale class="form-control shadow "  (input)="dimensioneInput(codiceFiscale)" style="text-transform: uppercase;" type="text" placeholder="Codice Fiscale" name="Il codice fiscale " id="codiceFiscale"  required
+            [(ngModel)]="dipendente.codiceFiscale">
+            <label  style="text-align: center;width: 100%;;margin-top: 0% !important" *ngIf="showMessage=='codiceFiscale'  && !inputs[0].corretto"><label class="form" style="font-size:1vw !important;color: rgb(142, 31, 31);">&nbsp;&nbsp;{{message}}!</label></label>
+        </div>
+        <!-- nome -->
+            <label for="nome" >Nome:</label>
+            <input #nome class="form-control shadow "  (input)="dimensioneInput( nome )" type="text" placeholder="Mario" name=" nome  " id="nome" required
+            [(ngModel)]="dipendente.nome">
+        
+        <!-- Cognome -->
+            <label for="cognome" >Cognome:</label>
+            <input #cognome class="form-control shadow "  (input)="dimensioneInput( cognome )" type="text" placeholder="Rossi" name=" cognome  " id="cognome" required
+            [(ngModel)]="dipendente.cognome">
+        
+        <!-- email -->
+            <label for="email" >Email Aziendale:</label>
+            <input #email class="form-control shadow "  (input)="dimensioneInput(email)" type="email" placeholder="mario.rossi@proconsul-group.com" name=" email " id="email" required
+            [(ngModel)]="dipendente.email">
+
+        <!-- password-->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input #password  maxlength="32" type="password" class="form-control shadow "  (input)="dimensioneInput(password) "  placeholder="Password" name="La password " id="password" required [(ngModel)]="dipendente.password">
+                <label  style="text-align: center;width: 100%;;margin-top: 0% !important" *ngIf="showMessage=='password'  && !inputs[4].corretto"><label class="form" style="font-size:1vw !important;color: rgb(142, 31, 31);">&nbsp;&nbsp;{{message}}!</label></label>
+            </div>
+        
+        <!-- data di nascita -->
+            <label for="la data di nascita" >Data di Nascita:</label>
+            <input #data class="form-control shadow "  type="date" placeholder="" name=" dataDiNascita "  required
+            [(ngModel)]="dipendente.dataDiNascita">
+            </div>
+            <div class="col" style="margin-left: 1%;">
+        <!-- luogo di nascita -->
+            <label for=" luogo di nascita" >Luogo di Nascita:</label>
+            <input #luogo class="form-control shadow "  (input)="dimensioneInput(luogo)" type="text" placeholder="Roma" name=" cittaNatale " id="luogo" required
+            [(ngModel)]="dipendente.cittaNatale">
+        
+        <!-- via di residenza -->
+            <label for="l'indirizzo" >Via di Residenza:</label>
+            <input #indirizzo class="form-control shadow "  (input)="dimensioneInput(indirizzo)" type="text" placeholder="Via Roma" name="l'indirizzo " id="indirizzo" required
+            [(ngModel)]="dipendente.indirizzo">
+        
+        <!-- città di residenza -->
+            <label for="cittaResidenza" >Città di Residenza:</label>
+            <input #citta class="form-control shadow "  (input)="dimensioneInput(citta)" type="text" placeholder="Roma" name=" cittaResidenza " id="citta" required
+            [(ngModel)]="dipendente.cittaResidenza">
+        
+        <!-- cap di residenza -->
+            <label for="cap" >CAP di Residenza:</label>
+            <input #cap class="form-control shadow "  (input)="dimensioneInput(cap)" type="text" placeholder="00154" name="Il cap " id="cap" required
+            [(ngModel)]="dipendente.cap">
+            <label  style="text-align: center;width: 100%;;margin-top: 0% !important" *ngIf="showMessage=='cap'  && !inputs[8].corretto"><label class="form" style="font-size:1vw !important;color: rgb(142, 31, 31);">&nbsp;&nbsp;{{message}}!</label></label>
+
+        <!-- recapito telefonico -->
+            <label for="numeroTelefonico" >Recapito Telefonico:</label>
+            <input #tel class="form-control shadow "  (input)="dimensioneInput(tel)" maxlength="12" type="text" placeholder="+39...." name="Il recapito telefonico " id="tel" required
+            [(ngModel)]="dipendente.numeroTelefonico">
+            <label  style="text-align: center;width: 100%;;margin-top: 0% !important" *ngIf="showMessage=='tel'  && !inputs[9].corretto"><label class="form" style="font-size:1vw !important;color: rgb(142, 31, 31);">&nbsp;&nbsp;{{message}}!</label></label>
+            <div *ngIf="this.giustizia" style=" display: flex;justify-content: center;margin-top: 7%;">      
+                <button class="form-control shadow button-56"  type="submit" style="float: right !important; width: 30%; margin-top: 1%;height: 2.2vw;">SALVA</button>
+            </div>        
+        </div>
+        </div>
+        <div *ngIf="!this.giustizia" style="height: 4%;text-align: center;margin-top: 2%;font-size: 1.4vw !important; font-weight: 1000;color: rgb(142, 31, 31);">Attenzione! potrai registrarti solamente dopo aver compilato tutti i campi in modo corretto.</div>
+             
+    </form>
+   
+</div>
