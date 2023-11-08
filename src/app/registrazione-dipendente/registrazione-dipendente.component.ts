@@ -54,9 +54,7 @@ export class RegistrazioneDipendenteComponent {
     }
 
     ngOnInit(){
-      if(this.dipendenteService.getToken()===''){
-        this.router.navigate(['/welcome'])
-      }
+      
       this.campi.forEach(
         id=>{
         this.inserimento=new Inserimento(id,false)
