@@ -26,7 +26,9 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "theming/my_theme.scss",
               "src/styles.css"
+
             ],
             "scripts": []
           },
@@ -93,7 +95,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "theming/my_theme.scss"
             ],
             "scripts": [
               "./node_modules/intl-tel-input/build/js/utils.js"  

@@ -56,14 +56,19 @@
   }
 
   .table-bordered{
-    border: #25438b;
+    border: #27258be9  solid 3px !important;
   }
 
   input.right {
     float: right;
   
   }
+
+  .button-56::after{
+    height: 107%;
+  }
   
   button:hover{
     cursor: pointer;
   }
+  

@@ -1,9 +1,13 @@
 
-<div style="display: flex;justify-content: center; font-size: 6vw !important;color:#032e73;"> Benvenuta  HR</div>
 
-<div class="container-sm" style="color:white !important;display: flex;flex-direction: column;align-items: center;height: 50vw;">
-<button class="shadow form-control button-56" ><span>Inserisci una nuova categoria</span></button>
-<button class="shadow form-control button-56"><span>Inserisci una nuova tecnologia</span></button>
-<button class="shadow form-control button-56"><span>Gestisci gli utenti hr</span></button>
+<div *ngIf="time<16" style="margin-top: 2%;display: flex;justify-content: center; font-size: 3vw !important;color:#032e73;text-transform: uppercase;"> Buongiorno {{utenteNome}}</div>
+<div *ngIf="time>=16" style="margin-top:2%;display: flex;justify-content: center; font-size: 3vw !important;color:#032e73;text-transform: uppercase"> Buonasera {{utenteNome}}</div>
+
+
+
+<div class="container-sm" style="color:white !important;display: flex;flex-direction: column;align-items: center;height: 50vw;margin-top: 2%;">
+<a routerLink="/nuova-tecnologia" style="width: 100%;text-decoration: none;"> <button *ngIf="utenteRuolo==='admin'" class="shadow form-control button-56"><span>Inserisci una nuova tecnologia</span></button></a>
+<a routerLink="/nuova-categoria" style="width: 100%;text-decoration: none;"> <button *ngIf="utenteRuolo==='admin'" class="shadow form-control button-56" ><span>Inserisci una nuova categoria</span></button></a>
+<button *ngIf="utenteRuolo==='admin'" class="shadow form-control button-56"><span>Gestisci gli utenti hr</span></button>
 <button class="shadow form-control button-56"><span>Ricerca dei dipendenti</span></button>
 </div>

@@ -31,14 +31,19 @@
         <!-- password-->
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input #password  maxlength="32" type="password" class="form-control shadow "  (input)="dimensioneInput(password) "  placeholder="Password" name="La password " id="password" required [(ngModel)]="dipendente.password">
+                <input #password  maxlength="32" name="data" type="password" class="form-control shadow "  (input)="dimensioneInput(password) "  placeholder="Password" name="La password " id="password" required [(ngModel)]="dipendente.password">
                 <label  style="text-align: center;width: 100%;;margin-top: 0% !important" *ngIf="showMessage=='password'  && !inputs[4].corretto"><label class="form" style="font-size:1vw !important;color: rgb(142, 31, 31);">&nbsp;&nbsp;{{message}}!</label></label>
             </div>
         
         <!-- data di nascita -->
-            <label for="la data di nascita" >Data di Nascita:</label>
-            <input #data class="form-control shadow "  type="date" placeholder="" name=" dataDiNascita "  required
-            [(ngModel)]="dipendente.dataDiNascita">
+            <label for="la data di nascita">Data di Nascita:</label>
+            <div class="form-control shadow" style="background-color:  #d4b269 !important; display: flex;align-items: center;">
+                <input matInput [min]="minDate" name="data" [max]="maxDate" [matDatepicker]="picker" type="none" [(ngModel)]="dipendente.dataDiNascita" placeholder="Mese/Giorno/Anno" style="    background: rgba(0, 0, 0, 0);
+                border: none !important;
+                outline: none;width: 92%;">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
             </div>
             <div class="col" style="margin-left: 1%;">
         <!-- luogo di nascita -->

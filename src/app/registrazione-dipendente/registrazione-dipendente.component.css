@@ -20,3 +20,12 @@ input:focus{
 button:hover{
     cursor: pointer;
 }
+
+.ng-star-inserted{
+    width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-wrapper{
+    margin-bottom: -1.25em;
+ }
+ 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DipendenteDTO } from '../model/dipendenteDTO';
 import { TecnologiaService } from '../service/tecnologia.service';
+import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login-dipendente',
@@ -9,8 +11,8 @@ import { TecnologiaService } from '../service/tecnologia.service';
 })
 export class LoginDipendenteComponent implements OnInit {
   dipendente:DipendenteDTO=new DipendenteDTO("","");
-  constructor(private dipendenteService : TecnologiaService) { 
-   
+  dipendenteNome:string=''
+  constructor(private dipendenteService : TecnologiaService,private router:Router) { 
   }
  
   ngOnInit(): void {
@@ -22,7 +24,16 @@ export class LoginDipendenteComponent implements OnInit {
     subscribe({
       next : (data) => {
         alert("Hai acceduto correttamente");
-        console.log(data);
+        this.dipendenteService.setToken(data.token)
+       this.router.navigate(['/welcome-dipendente'])
+       const token = JSON.stringify(this.dipendenteService.getToken());
+        const decoded = jwtDecode(token);
+        if(decoded!==null){
+          this.dipendenteService.setRuolo('dipendente')
+        }
+        this.dipendenteNome=JSON.stringify(decoded)
+        let jsonObject=JSON.parse(this.dipendenteNome)
+        this.dipendenteService.setNome(jsonObject.nome)
       },
       error: (error) => {
         console.log(error);

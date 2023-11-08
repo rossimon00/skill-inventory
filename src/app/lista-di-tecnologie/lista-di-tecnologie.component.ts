@@ -27,17 +27,18 @@ export class ListaDiTecnologieComponent {
   date=new Date("2000-07-26")
   dipendentiTecnologie: DipendenteTecnologia[]=[];
   categoria=new Categoria("");
-  dipendente!:Dipendente
+  dipendente:Dipendente =new Dipendente()
   tecnologies:Tecnologia[]=[]
   dipendenteTecnologiaId!:DipendenteTecnologiaId
   dipendenteTecnologia!:DipendenteTecnologia
+  dipendent!: Observable<Dipendente>;
   constructor(private router:Router,private tecnologiaService:TecnologiaService){
    
   }
 
   showAllTechnologies():void{
     this.tecnologie = this.tecnologiaService.trovaTutteLeTecnologie();
-    console.log(this.tecnologie)
+
   }
 
   onSubmit():void{
@@ -56,7 +57,25 @@ export class ListaDiTecnologieComponent {
   }
 
   ngOnInit(): void {
-    this.dipendente=new Dipendente("1234566666666666","Mario","Rossi","cicicicici",this.date,"roma","jnnjjkj","djndnidni","04028","3245678901");
+    if(this.tecnologiaService.getToken()===''){
+      this.router.navigate(['/welcome'])
+    }
+    this.dipendent=this.tecnologiaService.trovaIlDipendente();
+    this.dipendent.subscribe((value)=>{
+      console.log(value);
+      
+      this.dipendente.codiceFiscale=value.codiceFiscale;
+      this.dipendente.cap=value.cap;
+      this.dipendente.cittaNatale=value.cittaNatale,
+      this.dipendente.cittaResidenza=value.cittaResidenza,
+      this.dipendente.cognome=value.cognome,
+      this.dipendente.nome=value.nome,
+      this.dipendente.email=value.email,
+      this.dipendente.indirizzo=value.indirizzo,
+      this.dipendente.numeroTelefonico=value.numeroTelefonico,
+      this.dipendente.password=value.password,
+      this.dipendente.dataDiNascita=value.dataDiNascita
+    })
     this.showAllTechnologies();   
     this.tecnologie.forEach((t: Tecnologia[],)=>{
       t.forEach((value)=>{

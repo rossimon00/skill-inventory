@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Dipendente } from '../model/dipendente';
 
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Inserimento } from '../model/input';
 @Component({
   selector: 'app-registrazione-dipendente',
   templateUrl: './registrazione-dipendente.component.html',
-  styleUrls: ['./registrazione-dipendente.component.css']
+  styleUrls: ['./registrazione-dipendente.component.css'],
 })
 export class RegistrazioneDipendenteComponent {
   dipendente : Dipendente = new Dipendente();
@@ -20,7 +20,19 @@ export class RegistrazioneDipendenteComponent {
   inserimento:Inserimento=new Inserimento("",false)
   inputs:Inserimento[]=[] 
   campi:string[]=["codiceFiscale","nome","cognome","email","password","luogo","indirizzo","citta","cap","tel"]
-  constructor(private dipendenteService : TecnologiaService, private router : Router) {}
+  minDate: Date;
+  maxDate: Date;
+  constructor(private dipendenteService : TecnologiaService, private router : Router) {
+    var data= new Date();
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    console.log(data);
+    const currentDay = data.getDate();
+    console.log(currentDay);
+    
+    this.minDate = new Date(currentYear - 70,currentMonth - 0,currentDay );
+    this.maxDate = new Date(currentYear -18,currentMonth - 0,currentDay );
+  }
 
   onSubmit() : void {
     
@@ -42,7 +54,9 @@ export class RegistrazioneDipendenteComponent {
     }
 
     ngOnInit(){
-
+      if(this.dipendenteService.getToken()===''){
+        this.router.navigate(['/welcome'])
+      }
       this.campi.forEach(
         id=>{
         this.inserimento=new Inserimento(id,false)

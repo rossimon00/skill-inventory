@@ -1,7 +1,11 @@
-<a routerLink="/welcome">
-    <div class="container" style="margin-top: 2%;display: flex; align-items: center;height: auto;justify-content: center;"><img class="img-responsive" style="margin-top: 1%;height: 80%;" src="/assets/Proconsul_logo.jpg" alt="">
-    </div>
-    </a>
-<router-outlet></router-outlet>
+<div style="display: flex;">
+<a *ngIf="getRuolo" routerLink="/welcome">
+<img class="img-responsive" style="margin-left: 86%;margin-top: 4%;width: 80%;" src="/assets/Proconsul_logo.jpg" alt="">
+ </a>  <div class="logout"  (click)="setToken()" *ngIf="getToken()!==''"> <div  style="text-decoration: none !important;display: flex; align-items: center;margin-top: 2.6%;font-size: 2vw;color: #0a2963; margin-right: 2%;">Logout</div>
+    <img style="width: 7%; margin-top: 3%;" src="/assets/logout.png" alt=""></div>
+</div>
+
+    
+<router-outlet ng></router-outlet>
 
 

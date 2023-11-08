@@ -9,6 +9,8 @@ import { LoginHrComponent } from './login-hr/login-hr.component';
 import { WelcomeHrComponent } from './welcome-hr/welcome-hr.component';
 import { WelcomeDipendenteComponent } from './welcome-dipendente/welcome-dipendente.component';
 import { AccountDipendenteComponent } from './account-dipendente/account-dipendente.component';
+import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-tecnologia.component';
+import { InserimentoCategoriaComponent } from './inserimento-categoria/inserimento-categoria.component';
 
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'message', component: MessageComponent},
   {path: '',redirectTo:'welcome', pathMatch:'full'},
   {path:'tecnologie', component: ListaDiTecnologieComponent},
-  {path:'registrazione-dipendente', component:RegistrazioneDipendenteComponent}
+  {path:'registrazione-dipendente', component:RegistrazioneDipendenteComponent},
+  {path:'nuova-tecnologia', component:InserisciTecnologiaComponent},
+  {path:'nuova-categoria', component:InserimentoCategoriaComponent}
 ];
 
 @NgModule({

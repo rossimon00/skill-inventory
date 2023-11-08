@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { LoginDipendenteComponent } from './login-dipendente/login-dipendente.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { JWT_OPTIONS, JwtHelperService, JwtModule } from "@auth0/angular-jwt"
 import { WelcomeComponent } from './welcome/welcome.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ListaDiTecnologieComponent } from './lista-di-tecnologie/lista-di-tecnologie.component';
 import { MessageComponent } from './message/message.component';
 import { RegistrazioneDipendenteComponent } from './registrazione-dipendente/registrazione-dipendente.component';
@@ -17,7 +17,13 @@ import { WelcomeHrComponent } from './welcome-hr/welcome-hr.component';
 import { WelcomeDipendenteComponent } from './welcome-dipendente/welcome-dipendente.component';
 import { AccountDipendenteComponent } from './account-dipendente/account-dipendente.component';
 import { InserimentoCategoriaComponent } from './inserimento-categoria/inserimento-categoria.component';
-import { InserimentoTecnologiaComponent } from './inserimento-tecnologia/inserimento-tecnologia.component';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-tecnologia.component';
 
 
 @NgModule({
@@ -33,7 +39,7 @@ import { InserimentoTecnologiaComponent } from './inserimento-tecnologia/inserim
     WelcomeDipendenteComponent,
     AccountDipendenteComponent,
     InserimentoCategoriaComponent,
-    InserimentoTecnologiaComponent,
+    InserisciTecnologiaComponent,
   ],
   imports: [
     FormsModule,
@@ -42,9 +48,27 @@ import { InserimentoTecnologiaComponent } from './inserimento-tecnologia/inserim
     NgbModule,
  HttpClientModule,
      ReactiveFormsModule,
-     
+     MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,  
+  ]
+  ,
+  providers: [
+     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi:true,
+     },
+     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+
+}
