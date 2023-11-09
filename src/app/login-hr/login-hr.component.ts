@@ -17,6 +17,7 @@ export class LoginHrComponent {
   constructor(private dipendenteService : TecnologiaService,private router:Router) { 
   }
   ngOnInit(): void {
+    
   }
  
   onSubmit(): void {

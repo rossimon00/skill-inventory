@@ -1,0 +1,27 @@
+<div class="container-sm" style="max-width: 70%">
+  <table
+    style="color: #25438b"
+    class="shadow table table-striped table-bordered"
+    style="margin-top: 10%">
+    <thead>
+      <tr>
+        <th>Nominativo</th>
+        <th>E-mail</th>
+        <th>Ruolo</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let utenteHr of (utentiHr | async)?.utentiHR">
+        <td>{{ utenteHr.nominativo }}</td>
+        <td>{{ utenteHr.email }}</td>
+        <td>{{ utenteHr.ruolo }}</td>
+
+        <td>
+          <a (click)="onDelete(utenteHr.email)" class="elimina">Elimina</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

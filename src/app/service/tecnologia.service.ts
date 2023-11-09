@@ -7,13 +7,14 @@ import { DipendenteDTO } from '../model/dipendenteDTO';
 import { UtenteHr } from '../model/utenteHr';
 import { Tecnologia } from '../model/tecnologia';
 import { Categoria } from '../model/categoria';
+import { ResponseData } from '../model/ResponseData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TecnologiaService {
 
-  private baseUrl="http://10.5.60.123:8771/rest/api";
+  private baseUrl="http://localhost:8771/rest/api";
   nome:string=''
   ruolo:string=''  
   constructor(private httpClient: HttpClient) { }
@@ -102,4 +103,12 @@ export class TecnologiaService {
   loginHr(utente:DipendenteDTO): Observable<any>{
     return this.httpClient.post(`${this.baseUrl}/hr/login-hr`, utente);
   }
+
+  vediListaUtentiHrCustom(): Observable<ResponseData> {
+    console.log("Token: "+this.getToken());
+    
+    
+    return this.httpClient.get<ResponseData>(`${this.baseUrl}/hr/utenti/custom`);
+  }
+
 }

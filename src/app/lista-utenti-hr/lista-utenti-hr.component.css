@@ -1,0 +1,98 @@
+.custom-select {
+  position: relative;
+}
+
+select {
+  appearance: menulist;
+  /*  safari  */
+  -webkit-appearance: menulist;
+  /*  other styles for aesthetics */
+  width: 100% !important;
+
+  background-color: #fff;
+
+  color: #000;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
+  /* webkit*/
+}
+select:focus {
+  outline: none;
+}
+
+select#xyz {
+  border: none !important;
+  outline: none !important;
+}
+th {
+  background-color: #d4b269;
+  color: #0a2963;
+}
+
+.custom-select:focus {
+  border: none !important;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+  border: none !important;
+  outline: none !important;
+}
+
+.custom-select::before {
+  border: none !important;
+
+  top: 40%;
+}
+
+.custom-select::after {
+  border: none !important;
+
+  top: 55%;
+}
+
+td {
+  text-align: center;
+  font-size: 1.2vw;
+}
+
+.shadow {
+  background-color: #d4b269 !important;
+}
+
+.table-bordered {
+  border: #27258be9 solid 3px !important;
+}
+
+input.right {
+  float: right;
+}
+
+input:focus {
+  border: none !important;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+th {
+  text-align: center;
+}
+
+.elimina {
+  text-decoration: none;
+  font-weight: bold;
+  color: #bb1313;
+}
+.elimina:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,15 +1,60 @@
-
-<div class="container-sm" style="width: 50%;">
-    <table style="color: #25438b;" class=" shadow table table-striped  table-bordered" style="margin-top: 3%;">
-       <thead>
-           <tr>
-               <th style="text-align: center;font-size: 1.5vw;">Categorie</th></tr></thead><tbody><tr *ngFor="let categoria of categories| async;index as i">
-       <td class="align-middle">{{categoria.nome}}</td >
-   </tr></tbody></table>
-<table style="color: #25438b !important;" class="container-sm shadow table table-striped  table-bordered" style="margin-bottom:5%;margin-top: 5%;"><tbody>
-   <tr  > <td class="align-middle" style="width: 50%;"><input type="text" placeholder="Nuova categoria..." style="height: 100%;width: 100%;background-color: transparent !important; border: none;text-align: center;" name="categoria" [(ngModel)]="categoria.nome"></td >
-        </tr>
-</tbody></table>
-<div *ngIf=" categoria.nome!==''" style="display: flex;justify-content: center !important; width: 100%;"><button (click)="onSubmit()" class="button-56" type="submit" style="background-color: #25448b00;font-size: 1.4vw;display: flex;align-items: center;">SALVA</button></div>
-
+<div class="container-sm" style="width: 50%">
+  <table
+    style="color: #25438b"
+    class="shadow table table-striped table-bordered"
+    style="margin-top: 3%">
+    <thead>
+      <tr>
+        <th style="text-align: center; font-size: 1.5vw">Categorie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let categoria of categories | async; index as i">
+        <td class="align-middle">{{ categoria.nome }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table
+    style="color: #25438b !important"
+    class="container-sm shadow table table-striped table-bordered"
+    style="margin-bottom: 5%; margin-top: 5%"
+  >
+    <tbody>
+      <tr>
+        <td class="align-middle" style="width: 50%">
+          <input
+            type="text"
+            placeholder="Nuova categoria..."
+            style="
+              height: 100%;
+              width: 100%;
+              background-color: transparent !important;
+              border: none;
+              text-align: center;
+            "
+            name="categoria"
+            [(ngModel)]="categoria.nome"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="categoria.nome !== ''"
+    style="display: flex; justify-content: center !important; width: 100%"
+  >
+    <button
+      (click)="onSubmit()"
+      class="button-56"
+      type="submit"
+      style="
+        background-color: #25448b00;
+        font-size: 1.4vw;
+        display: flex;
+        align-items: center;
+      "
+    >
+      SALVA
+    </button>
+  </div>
 </div>

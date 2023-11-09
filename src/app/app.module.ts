@@ -24,6 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-tecnologia.component';
+import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
+import { EliminaUtenteHrComponent } from './elimina-utente-hr/elimina-utente-hr.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-t
     AccountDipendenteComponent,
     InserimentoCategoriaComponent,
     InserisciTecnologiaComponent,
+    ListaUtentiHrComponent,
+    EliminaUtenteHrComponent,
   ],
   imports: [
     FormsModule,

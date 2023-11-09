@@ -11,6 +11,8 @@ import { WelcomeDipendenteComponent } from './welcome-dipendente/welcome-dipende
 import { AccountDipendenteComponent } from './account-dipendente/account-dipendente.component';
 import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-tecnologia.component';
 import { InserimentoCategoriaComponent } from './inserimento-categoria/inserimento-categoria.component';
+import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
+import { EliminaUtenteHrComponent } from './elimina-utente-hr/elimina-utente-hr.component';
 
 
 
@@ -26,7 +28,9 @@ const routes: Routes = [
   {path:'tecnologie', component: ListaDiTecnologieComponent},
   {path:'registrazione-dipendente', component:RegistrazioneDipendenteComponent},
   {path:'nuova-tecnologia', component:InserisciTecnologiaComponent},
-  {path:'nuova-categoria', component:InserimentoCategoriaComponent}
+  {path:'nuova-categoria', component:InserimentoCategoriaComponent},
+  {path:'lista-utenti-hr', component:ListaUtentiHrComponent},
+  {path:'elimina-utente-hr/:email', component:EliminaUtenteHrComponent}
 ];
 
 @NgModule({
