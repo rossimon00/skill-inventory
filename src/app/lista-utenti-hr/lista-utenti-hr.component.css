@@ -91,8 +91,19 @@ th {
   text-decoration: none;
   font-weight: bold;
   color: #bb1313;
+  margin: 0 3%;
 }
 .elimina:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.modifica {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(51, 0, 255);
+  margin: 0 3%;
+}
+.modifica:hover {
   text-decoration: underline;
   cursor: pointer;
 }

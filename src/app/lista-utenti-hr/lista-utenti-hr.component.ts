@@ -11,11 +11,12 @@ import { UtenteHr } from '../model/utenteHr';
   styleUrls: ['./lista-utenti-hr.component.css'],
 })
 export class ListaUtentiHrComponent {
+  onUpdate(email: string) {
+    throw new Error('Method not implemented.');
+  }
 
   onDelete(email: string) {
-    
-    this.router.navigate(["elimina-utente-hr", email])
-
+    this.router.navigate(['elimina-utente-hr', email]);
   }
 
   utentiHr!: Observable<ResponseData>;
