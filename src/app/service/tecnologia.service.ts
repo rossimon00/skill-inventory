@@ -4,10 +4,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dipendente } from '../model/dipendente';
 import { DipendenteDTO } from '../model/dipendenteDTO';
-import { UtenteHr } from '../model/utenteHr';
+import { UtenteHrTabella } from '../model/utenteHrTabella';
 import { Tecnologia } from '../model/tecnologia';
 import { Categoria } from '../model/categoria';
 import { ResponseData } from '../model/ResponseData';
+import { UtenteHr } from '../model/utenteHr';
+import { UtenteHREmail } from '../model/UtenteHREmail';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +63,7 @@ export class TecnologiaService {
   }
 
   nuovaTecnologia(tecnologia:Tecnologia):Observable<any>{
-    return this.httpClient.post(`http://10.5.60.123:8771/rest/api/tecnologie/nuova-tecnologia`,tecnologia);
+    return this.httpClient.post(`${this.baseUrl}/tecnologie/nuova-tecnologia`,tecnologia);
   }
 
   nuovaCategoria(categoria:Categoria):Observable<any>{
@@ -88,7 +90,6 @@ export class TecnologiaService {
   getToken(): string | null{
  
     let token = localStorage.getItem( 'token' );
-    console.log(token);
     
   
    return token;
@@ -104,11 +105,19 @@ export class TecnologiaService {
     return this.httpClient.post(`${this.baseUrl}/hr/login-hr`, utente);
   }
 
-  vediListaUtentiHrCustom(): Observable<ResponseData> {
-    console.log("Token: "+this.getToken());
-    
-    
+  vediListaUtentiHrCustom(): Observable<ResponseData> {   
     return this.httpClient.get<ResponseData>(`${this.baseUrl}/hr/utenti/custom`);
+  }
+
+  trovaUtenteHr(email: UtenteHREmail): Observable<any> {
+
+    return this.httpClient.post(`${this.baseUrl}/hr/trovaHr`, email);
+  }
+
+  modificaUtenteHR(utenteHR : string) : Observable<any> {
+ 
+    return this.httpClient.put(`${this.baseUrl}/hr/modifica/aggiornamento-utente`, utenteHR);
+
   }
 
 }

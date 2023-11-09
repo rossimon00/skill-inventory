@@ -1,9 +1,9 @@
-import { UtenteHr } from './utenteHr';
+import { UtenteHrTabella } from './utenteHrTabella';
 
 export class ResponseData {
-  utentiHR: UtenteHr[];
+  utentiHR: UtenteHrTabella[];
 
-  constructor(utentiHR: UtenteHr[]) {
+  constructor(utentiHR: UtenteHrTabella[]) {
     this.utentiHR = utentiHR;
   }
 }

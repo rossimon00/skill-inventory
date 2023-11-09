@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { ResponseData } from '../model/ResponseData';
 import { TecnologiaService } from '../service/tecnologia.service';
 import { Router } from '@angular/router';
-import { UtenteHr } from '../model/utenteHr';
+import { UtenteHrTabella } from '../model/utenteHrTabella';
 
 @Component({
   selector: 'app-lista-utenti-hr',
@@ -11,8 +11,9 @@ import { UtenteHr } from '../model/utenteHr';
   styleUrls: ['./lista-utenti-hr.component.css'],
 })
 export class ListaUtentiHrComponent {
+
   onUpdate(email: string) {
-    throw new Error('Method not implemented.');
+    this.router.navigate(["modifica-utente-hr", email])
   }
 
   onDelete(email: string) {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TecnologiaService } from '../service/tecnologia.service';
-import { UtenteHr } from '../model/utenteHr';
+import { UtenteHrTabella } from '../model/utenteHrTabella';
 
 @Component({
   selector: 'app-elimina-utente-hr',
@@ -10,7 +10,7 @@ import { UtenteHr } from '../model/utenteHr';
 })
 export class EliminaUtenteHrComponent {
 
-  utenteHr !: UtenteHr;
+  utenteHr !: UtenteHrTabella;
 
   constructor(private cancellazioneService:TecnologiaService, 
     private router: Router,

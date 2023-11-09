@@ -13,6 +13,7 @@ import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-t
 import { InserimentoCategoriaComponent } from './inserimento-categoria/inserimento-categoria.component';
 import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
 import { EliminaUtenteHrComponent } from './elimina-utente-hr/elimina-utente-hr.component';
+import { AccountUtenteHrComponent } from './account-utente-hr/account-utente-hr.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'nuova-tecnologia', component:InserisciTecnologiaComponent},
   {path:'nuova-categoria', component:InserimentoCategoriaComponent},
   {path:'lista-utenti-hr', component:ListaUtentiHrComponent},
-  {path:'elimina-utente-hr/:email', component:EliminaUtenteHrComponent}
+  {path:'elimina-utente-hr/:email', component:EliminaUtenteHrComponent},
+  {path:'modifica-utente-hr/:email', component:AccountUtenteHrComponent},
 ];
 
 @NgModule({

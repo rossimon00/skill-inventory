@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UtenteHr } from '../model/utenteHr';
+import { UtenteHrTabella } from '../model/utenteHrTabella';
 import { DipendenteDTO } from '../model/dipendenteDTO';
 import { jwtDecode } from 'jwt-decode';
 import { TecnologiaService } from '../service/tecnologia.service';

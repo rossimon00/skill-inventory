@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-tecnologia.component';
 import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
 import { EliminaUtenteHrComponent } from './elimina-utente-hr/elimina-utente-hr.component';
+import { AccountUtenteHrComponent } from './account-utente-hr/account-utente-hr.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { EliminaUtenteHrComponent } from './elimina-utente-hr/elimina-utente-hr.
     InserisciTecnologiaComponent,
     ListaUtentiHrComponent,
     EliminaUtenteHrComponent,
+    AccountUtenteHrComponent,
   ],
   imports: [
     FormsModule,
