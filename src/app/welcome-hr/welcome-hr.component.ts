@@ -26,7 +26,7 @@ export class WelcomeHrComponent {
     let jsonObject=JSON.parse(this.dipendenteNome)
     this.dipendenteService.setNome(jsonObject.nome)
     this.dipendenteService.setRuolo(jsonObject.ruolo)
-    console.log(this.dipendenteNome);
+    console.log(this.dipendenteService.getRuolo());
     
 this.utenteNome=this.dipendenteService.getNome()
     this.utenteRuolo=this.dipendenteService.getRuolo()
