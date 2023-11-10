@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+    <div class="centrato">
+    <div class="panel-heading">
+        <h2>Ricerca dipendenti</h2>
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="sortBy('cognome')">Ordina per Cognome</button>
+        <button class="btn btn-primary" (click)="sortBy('nomeTecnologia')">Ordina per Tecnologia</button>
+    </div>
+    
+    <input style="margin-top: 10px; margin-bottom: 10px;"
+          type="text"
+          [formControl]="searchText"
+          placeholder="Cerca per Cognome"
+          class="form-control"
+        >
+        <input style="margin-bottom: 10px;"
+          type="text"
+          [formControl]="searchTecnologia"
+          placeholder="Cerca per Tecnologia"
+          class="form-control"
+        >
+    </div>
+    <div class="panel-body">
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Tecnologia</th>
+                    <th>Competenza</th>
+                    <th>Esperienza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dipendente of dipendenti | async">
+                    <td>{{dipendente.nome}}</td>
+                    <td>{{dipendente.cognome}}</td>
+                    <td>{{dipendente.nomeTecnologia}}</td>
+                    <td>{{dipendente.competenza}}</td>
+                    <td>{{dipendente.esperienza}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

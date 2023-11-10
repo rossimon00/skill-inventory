@@ -11,6 +11,7 @@ import { ResponseData } from '../model/ResponseData';
 import { UtenteHr } from '../model/utenteHr';
 import { UtenteHREmail } from '../model/UtenteHREmail';
 import { UtenteHrRegistrazione } from '../model/UtenteHrRegistrazione';
+import { RicercaDipendenteTecnologia } from '../model/ricercaDipendenteTecnologia';
 
 @Injectable({
   providedIn: 'root',
@@ -141,4 +142,24 @@ export class TecnologiaService {
   registraUtenteHr(utenteHR: UtenteHrRegistrazione): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}/registrazione-hr`, utenteHR);
   }
+
+  ricercaDipendenti(nomiTecnologie : string[]) : Observable<any[]>{
+    
+    console.log(this.getToken());
+    
+    let pippo = this.httpClient.post<RicercaDipendenteTecnologia[]>(`${this.baseUrl}/dipendenti-per-tecnologie`, nomiTecnologie);
+    console.log("ottengo: "+pippo);
+    
+    return pippo;
+
+  }
+
+  listaTecnologie() : Observable<string[]>{
+    
+    console.log("token: " +this.getToken());
+    
+    return this.httpClient.get<string[]>(`${this.baseUrl}/hr/dipendenti-competenze/tecnologie`);
+
+  }
+
 }

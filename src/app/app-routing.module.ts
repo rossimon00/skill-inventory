@@ -13,6 +13,8 @@ import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-t
 import { InserimentoCategoriaComponent } from './inserimento-categoria/inserimento-categoria.component';
 import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
 import { AccountUtenteHrComponent } from './account-utente-hr/account-utente-hr.component';
+import { RicercaDipendentiComponent } from './ricerca-dipendenti/ricerca-dipendenti.component';
+import { ListaCategorieComponent } from './lista-categorie/lista-categorie.component';
 
 const routes: Routes = [
   { path: 'account-dipendente', component: AccountDipendenteComponent },
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path: 'nuova-categoria', component: InserimentoCategoriaComponent },
   { path: 'lista-utenti-hr', component: ListaUtentiHrComponent },
   { path: 'modifica-utente-hr/:email', component: AccountUtenteHrComponent },
+  { path: 'ricerca-dipendenti', component: RicercaDipendentiComponent },
+  { path: 'lista-tecnologie', component: ListaCategorieComponent },
 ];
 
 @NgModule({

@@ -27,6 +27,9 @@ import { InserisciTecnologiaComponent } from './inserisci-tecnologia/inserisci-t
 import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.component';
 import { AccountUtenteHrComponent } from './account-utente-hr/account-utente-hr.component';
 import { RegistrazioneHrComponent } from './registrazione-hr/registrazione-hr.component';
+import { RouterModule } from '@angular/router';
+import { RicercaDipendentiComponent } from './ricerca-dipendenti/ricerca-dipendenti.component';
+import { ListaCategorieComponent } from './lista-categorie/lista-categorie.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,8 @@ import { RegistrazioneHrComponent } from './registrazione-hr/registrazione-hr.co
     ListaUtentiHrComponent,
     AccountUtenteHrComponent,
     RegistrazioneHrComponent,
+    RicercaDipendentiComponent,
+    ListaCategorieComponent,
   ],
   imports: [
     FormsModule,
@@ -58,6 +63,7 @@ import { RegistrazioneHrComponent } from './registrazione-hr/registrazione-hr.co
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    RouterModule
   ],
   providers: [
     {
