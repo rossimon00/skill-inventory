@@ -23,7 +23,6 @@ export class LoginDipendenteComponent implements OnInit {
     console.log(this.dipendente);
     this.dipendenteService.loginDipendente(this.dipendente).subscribe({
       next: (data) => {
-        alert('Hai acceduto correttamente');
         this.dipendenteService.setToken(data.token);
         this.router.navigate(['/welcome-dipendente']);
         const token = JSON.stringify(this.dipendenteService.getToken());
