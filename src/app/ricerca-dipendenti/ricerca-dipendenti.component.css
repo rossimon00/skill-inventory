@@ -19,7 +19,27 @@ table{
     margin-left: 20px;
     margin-right: 20px;
 }
-
+th {
+    background-color: #d4b269;
+    color: #0a2963;
+    text-align: center;
+  }
+td {
+text-align: center;
+font-size: 1.2vw;
+}
 h2{
     margin: 20px;
+}
+.mostraTutto {
+    max-width: 40%; 
+    margin-top: 5%;
+    background: none;
+    border: none;
+    color: #34557e;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.mostraTutto:hover {
+    color: #426a9b;
 }
