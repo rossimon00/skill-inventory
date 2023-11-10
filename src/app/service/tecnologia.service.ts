@@ -10,114 +10,135 @@ import { Categoria } from '../model/categoria';
 import { ResponseData } from '../model/ResponseData';
 import { UtenteHr } from '../model/utenteHr';
 import { UtenteHREmail } from '../model/UtenteHREmail';
+import { UtenteHrRegistrazione } from '../model/UtenteHrRegistrazione';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TecnologiaService {
+  private baseUrl = 'http://localhost:8771/rest/api';
+  nome: string = '';
+  ruolo: string = '';
+  constructor(private httpClient: HttpClient) {}
 
-  private baseUrl="http://localhost:8771/rest/api";
-  nome:string=''
-  ruolo:string=''  
-  constructor(private httpClient: HttpClient) { }
-
-  setRuolo(ruolo:string){
-    localStorage.setItem('ruolo',ruolo)
+  setRuolo(ruolo: string) {
+    localStorage.setItem('ruolo', ruolo);
   }
 
-  getRuolo():string | null{
-    let ruolo=localStorage.getItem('ruolo');
+  getRuolo(): string | null {
+    let ruolo = localStorage.getItem('ruolo');
     return ruolo;
   }
 
-  setNome(nome:string){
-    localStorage.setItem('nome',nome)
+  setNome(nome: string) {
+    localStorage.setItem('nome', nome);
   }
 
-  getNome():string | null{
-    let nome=localStorage.getItem('nome');
+  getNome(): string | null {
+    let nome = localStorage.getItem('nome');
     return nome;
   }
 
-  setToken(token:string){
+  setToken(token: string) {
+    const tokenString: string = JSON.stringify(token);
 
-    const tokenString:string = JSON.stringify( token );
-    
-    localStorage.setItem('token',  tokenString.replace('\"','').replace('\"',''));
- }
-
-  trovaIlDipendente():Observable<any>{
-    return this.httpClient.post(`${this.baseUrl}/dipendenti/ottieni-dipendente`,null)
+    localStorage.setItem(
+      'token',
+      tokenString.replace('"', '').replace('"', '')
+    );
   }
 
-  trovaTutteLeTecnologie():Observable<any>{
+  trovaIlDipendente(): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/dipendenti/ottieni-dipendente`,
+      null
+    );
+  }
+
+  trovaTutteLeTecnologie(): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/competenze/tecnologie`);
   }
 
-  trovaTutteleCategorie():Observable<any>{
+  trovaTutteleCategorie(): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/tecnologie/lettura-categorie`);
   }
 
-  trovaTecnologie():Observable<any>{
+  trovaTecnologie(): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/tecnologie/tecnologie`);
   }
 
-  nuovaTecnologia(tecnologia:Tecnologia):Observable<any>{
-    return this.httpClient.post(`${this.baseUrl}/tecnologie/nuova-tecnologia`,tecnologia);
+  nuovaTecnologia(tecnologia: Tecnologia): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/tecnologie/nuova-tecnologia`,
+      tecnologia
+    );
   }
 
-  nuovaCategoria(categoria:Categoria):Observable<any>{
-    return this.httpClient.post(`${this.baseUrl}/categorie/nuova-categoria`,categoria);
+  nuovaCategoria(categoria: Categoria): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/categorie/nuova-categoria`,
+      categoria
+    );
   }
 
-  salvaTutteLeCompetenze(competenze:DipendenteTecnologia[]):Observable<any>{
-   return this.httpClient.post(`${this.baseUrl}/competenze/associa-dipendente-tecnologie`,competenze)
+  salvaTutteLeCompetenze(competenze: DipendenteTecnologia[]): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/competenze/associa-dipendente-tecnologie`,
+      competenze
+    );
   }
 
-  registraDipendente(dipendente : Dipendente) : Observable<any> {
-    
-    return this.httpClient.post(`${this.baseUrl}/registrazione-dipendenti/nuovo-dipendente`, dipendente);
-
+  registraDipendente(dipendente: Dipendente): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/registrazione-dipendenti/nuovo-dipendente`,
+      dipendente
+    );
   }
 
-  modificaDipendente(dipendente : string) : Observable<any> {
-    console.log('ciaooooo'  + dipendente);
-    
-    return this.httpClient.patch(`${this.baseUrl}/dipendenti/modifica-dipendente`, dipendente);
+  modificaDipendente(dipendente: string): Observable<any> {
+    console.log('ciaooooo' + dipendente);
 
+    return this.httpClient.patch(
+      `${this.baseUrl}/dipendenti/modifica-dipendente`,
+      dipendente
+    );
   }
 
-  getToken(): string | null{
- 
-    let token = localStorage.getItem( 'token' );
-    
-  
-   return token;
-  
- }
+  getToken(): string | null {
+    let token = localStorage.getItem('token');
 
-  loginDipendente(dipendenteDTO:DipendenteDTO) : Observable<any> {
-
-    return this.httpClient.post(`${this.baseUrl}/dipendenti/login-dipendente`,dipendenteDTO)
+    return token;
   }
 
-  loginHr(utente:DipendenteDTO): Observable<any>{
+  loginDipendente(dipendenteDTO: DipendenteDTO): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseUrl}/dipendenti/login-dipendente`,
+      dipendenteDTO
+    );
+  }
+
+  loginHr(utente: DipendenteDTO): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}/hr/login-hr`, utente);
   }
 
-  vediListaUtentiHrCustom(): Observable<ResponseData> {   
-    return this.httpClient.get<ResponseData>(`${this.baseUrl}/hr/utenti/custom`);
+  vediListaUtentiHrCustom(): Observable<ResponseData> {
+    return this.httpClient.get<ResponseData>(
+      `${this.baseUrl}/hr/utenti/custom`
+    );
   }
 
   trovaUtenteHr(email: UtenteHREmail): Observable<any> {
-
     return this.httpClient.post(`${this.baseUrl}/hr/trovaHr`, email);
   }
 
-  modificaUtenteHR(utenteHR : string) : Observable<any> {
- 
-    return this.httpClient.put(`${this.baseUrl}/hr/modifica/aggiornamento-utente`, utenteHR);
-
+  modificaUtenteHR(utenteHR: string): Observable<any> {
+    return this.httpClient.put(
+      `${this.baseUrl}/hr/modifica/aggiornamento-utente`,
+      utenteHR
+    );
   }
 
+  registraUtenteHr(utenteHR: UtenteHrRegistrazione): Observable<any> {
+    return this.httpClient.post(`${this.baseUrl}/registrazione-hr`, utenteHR);
+  }
 }

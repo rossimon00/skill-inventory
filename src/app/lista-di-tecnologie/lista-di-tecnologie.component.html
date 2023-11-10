@@ -1,49 +1,103 @@
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-body" style="margin-top: 3%;">
-            <form (ngSubmit)="onSubmit()">
-            <table style="color: #25438b;" class=" shadow table table-striped  table-bordered">
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">Tecnologia</th>
-                        <th style="text-align: center;">Categoria</th>
-                        <th style="text-align: center; ">Competenza</th>
-                        <th style="text-align: center;">Esperienza</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                    <tr *ngFor="let tecnologia of tecnologie| async;index as i">
-                        <td class="align-middle">{{tecnologia.nome}}</td >
-                        <td class="align-middle">{{tecnologia.categoria.nome}}</td>
-                        <td class="align-middle" style="text-align: center">
-                            <input type="radio" [(ngModel)]="competenza[i]"  name="competenza{{i}}" value="" > Nulla
-                            <input type="radio" [(ngModel)]="competenza[i]" name="competenza{{i}}" value="Scarsa"/> Scarsa
-                           <input type="radio" [(ngModel)]="competenza[i]" name="competenza{{i}}" value="Media"/> Media
-                           <input type="radio" [(ngModel)]="competenza[i]" name="competenza{{i}}" value="Buona"/> Buona
-                           <input type="radio"   [(ngModel)]="competenza[i]" name="competenza{{i}}" value="Ottima"/> Ottima
-                               </td>
-                               <td> <div class="custom-select "><select  [(ngModel)]="esperienza[i]" name="esperienza{{i}}">
-                       <option class="form-select"  selected="selected" value="Meno di un anno" >Meno di un anno</option>
-                       <option  value="Un anno" >Un anno</option>
-                       <option   value="Due anni">Due anni</option>
-                       <option   value="Tre anni">Tre anni</option>
-                         <option value="Quattro anni">Quattro anni</option>
-                         <option value="Cinque anni">Cinque anni</option>
-                         <option value="Sei anni">Sei anni</option>
-                         <option value="Sette anni">Sette anni</option>
-                         <option value="Otto anni">Otto anni</option>
-                         <option value="Nove anni">Nove anni</option>
-                         <option value="Dieci anni">Dieci anni</option>
-                     <option value="Più di dieci anni">Più di dieci anni</option>	
-                     </select></div></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="width: 100%;display: flex;justify-content: center;">
-            <button class="button-56" type="submit" style="background-color: #25448b00;font-size: 1.4vw;display: flex;align-items: center;">SALVA</button></div>    </form>
-            </div>
-            <app-message  [message]="message1" ></app-message>
-    </div>
-    
+  <div class="panel panel-primary">
+    <div class="panel-body" style="margin-top: 3%">
+      <form (ngSubmit)="onSubmit()">
+        <table
+          style="color: #25438b"
+          class="shadow table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+              <th style="text-align: center">Tecnologia</th>
+              <th style="text-align: center">Categoria</th>
+              <th style="text-align: center">Competenza</th>
+              <th style="text-align: center">Esperienza</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tecnologia of tecnologie | async; index as i">
+              <td class="align-middle">{{ tecnologia.nome }}</td>
+              <td class="align-middle">{{ tecnologia.categoria.nome }}</td>
+              <td class="align-middle" style="text-align: center">
+                <input
+                  type="radio"
+                  [(ngModel)]="competenza[i]"
+                  name="competenza{{ i }}"
+                  value=""
+                />
+                Nulla
+                <input
+                  type="radio"
+                  [(ngModel)]="competenza[i]"
+                  name="competenza{{ i }}"
+                  value="Scarsa"
+                />
+                Scarsa
+                <input
+                  type="radio"
+                  [(ngModel)]="competenza[i]"
+                  name="competenza{{ i }}"
+                  value="Media"
+                />
+                Media
+                <input
+                  type="radio"
+                  [(ngModel)]="competenza[i]"
+                  name="competenza{{ i }}"
+                  value="Buona"
+                />
+                Buona
+                <input
+                  type="radio"
+                  [(ngModel)]="competenza[i]"
+                  name="competenza{{ i }}"
+                  value="Ottima"
+                />
+                Ottima
+              </td>
+              <td>
+                <div class="custom-select">
+                  <select [(ngModel)]="esperienza[i]" name="esperienza{{ i }}">
+                    <option
+                      class="form-select"
+                      selected="selected"
+                      value="Meno di un anno"
+                    >
+                      Meno di un anno
+                    </option>
+                    <option value="Un anno">Un anno</option>
+                    <option value="Due anni">Due anni</option>
+                    <option value="Tre anni">Tre anni</option>
+                    <option value="Quattro anni">Quattro anni</option>
+                    <option value="Cinque anni">Cinque anni</option>
+                    <option value="Sei anni">Sei anni</option>
+                    <option value="Sette anni">Sette anni</option>
+                    <option value="Otto anni">Otto anni</option>
+                    <option value="Nove anni">Nove anni</option>
+                    <option value="Dieci anni">Dieci anni</option>
+                    <option value="Più di dieci anni">Più di dieci anni</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="width: 100%; display: flex; justify-content: center">
+          <button
+            class="button-56"
+            type="submit"
+            style="
+              background-color: #25448b00;
+              font-size: 1.4vw;
+              display: flex;
+              align-items: center;
+            "
+          >
+            SALVA
+          </button>
         </div>
+      </form>
+    </div>
+    <app-message [message]="message1"></app-message>
+  </div>
+</div>

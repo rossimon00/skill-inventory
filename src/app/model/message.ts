@@ -1,7 +1,7 @@
-export class Message{
-    message1:string;
+export class Message {
+  message1: string;
 
-    constructor(message:string){
-        this.message1=message
-    }
+  constructor(message: string) {
+    this.message1 = message;
+  }
 }

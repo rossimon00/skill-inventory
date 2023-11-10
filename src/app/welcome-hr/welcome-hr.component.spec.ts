@@ -8,7 +8,7 @@ describe('WelcomeHrComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WelcomeHrComponent]
+      declarations: [WelcomeHrComponent],
     });
     fixture = TestBed.createComponent(WelcomeHrComponent);
     component = fixture.componentInstance;

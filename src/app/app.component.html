@@ -1,12 +1,40 @@
-<div style="display: flex;">
-   <div> 
-<a (click)="indirizzamento()" style="cursor: pointer;">
-<img class="img-responsive" style="display:flex;position:relative;top: 1.6vw;left: 30vw;width: 40vw;" src="/assets/Proconsul_logo.jpg" alt="">
- </a></div>  <div class="logout"  (click)="setToken()"  *ngIf="getToken()!==''" style="position: relative;top: 1.5vw;"> <div  style="text-decoration: none !important;display: flex; align-items: center;font-size: 2vw;color: #0a2963; margin-right: 2%;">Logout</div>
-    <img style="width: 7%;margin-top: 2%;" src="/assets/logout.png" alt=""></div>
+<div style="display: flex">
+  <div>
+    <a (click)="indirizzamento()" style="cursor: pointer">
+      <img
+        class="img-responsive"
+        style="
+          display: flex;
+          position: relative;
+          top: 1.6vw;
+          left: 30vw;
+          width: 40vw;
+        "
+        src="/assets/Proconsul_logo.jpg"
+        alt=""
+      />
+    </a>
+  </div>
+  <div
+    class="logout"
+    (click)="setToken()"
+    *ngIf="getToken() !== ''"
+    style="position: relative; top: 1.5vw"
+  >
+    <div
+      style="
+        text-decoration: none !important;
+        display: flex;
+        align-items: center;
+        font-size: 2vw;
+        color: #0a2963;
+        margin-right: 2%;
+      "
+    >
+      Logout
+    </div>
+    <img style="width: 7%; margin-top: 2%" src="/assets/logout.png" alt="" />
+  </div>
 </div>
 
-    
 <router-outlet ng></router-outlet>
-
-

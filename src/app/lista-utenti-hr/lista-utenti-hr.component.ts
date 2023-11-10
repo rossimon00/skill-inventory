@@ -11,9 +11,8 @@ import { UtenteHrTabella } from '../model/utenteHrTabella';
   styleUrls: ['./lista-utenti-hr.component.css'],
 })
 export class ListaUtentiHrComponent {
-
   onUpdate(email: string) {
-    this.router.navigate(["modifica-utente-hr", email])
+    this.router.navigate(['modifica-utente-hr', email]);
   }
 
   onDelete(email: string) {

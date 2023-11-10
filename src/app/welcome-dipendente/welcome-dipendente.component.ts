@@ -6,26 +6,24 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-welcome-dipendente',
   templateUrl: './welcome-dipendente.component.html',
-  styleUrls: ['./welcome-dipendente.component.css']
+  styleUrls: ['./welcome-dipendente.component.css'],
 })
 export class WelcomeDipendenteComponent {
+  time!: number;
+  dipendenteNome: string | null = '';
 
-  time!:number
-  dipendenteNome:string | null=''
+  constructor(
+    private dipendenteService: TecnologiaService,
+    private router: Router
+  ) {}
 
-
-  constructor(private dipendenteService : TecnologiaService,private router:Router) { 
-  }
- 
-  ngOnInit(){
-    if(this.dipendenteService.getToken()===''){
-      this.router.navigate(['/welcome'])
+  ngOnInit() {
+    if (this.dipendenteService.getToken() === '') {
+      this.router.navigate(['/welcome']);
     }
-        this.dipendenteNome=this.dipendenteService.getNome()
-        let currentDate: Date = new Date();
-        this.time = currentDate.getHours() % 24;
-        console.log(this.time);
-        
-  } 
- 
+    this.dipendenteNome = this.dipendenteService.getNome();
+    let currentDate: Date = new Date();
+    this.time = currentDate.getHours() % 24;
+    console.log(this.time);
+  }
 }

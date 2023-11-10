@@ -1,46 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
-.shadow{
+.shadow {
   background-color: #eddebe00 !important;
-  -webkit-box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
-  box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
+  -webkit-box-shadow: 0px 10px 13px -7px #707070,
+    3px -9px 11px 5px rgba(205, 205, 205, 0.43);
+  box-shadow: 0px 10px 13px -7px #707070,
+    3px -9px 11px 5px rgba(205, 205, 205, 0.43);
   border: #0a2963 solid !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
-
-input{
+input {
   background-color: #d4b269 !important;
 }
 
-input:focus{
+input:focus {
   background-color: #d4b269 !important;
   color: #0a2963;
 }
 
-input:hover{
+input:hover {
   background-color: #d4b269 !important;
 }
 
-label{
+label {
   margin-top: 1%;
 }
 
-*{
-  font-family: 'Playfair Display', serif;
-
+* {
+  font-family: "Playfair Display", serif;
 }
 
-label{
+label {
   font-weight: 1000;
 }
 
-button.right{
+button.right {
   float: right;
 }
 
 .hovereffect {
-  
   width: 100%;
   height: 100%;
   float: left;
@@ -50,21 +49,20 @@ button.right{
   cursor: default;
   background: #42b078;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
-  box-shadow: 0px 10px 13px -7px #707070, 3px -9px 11px 5px rgba(205,205,205,0.43);
-
+  -webkit-box-shadow: 0px 10px 13px -7px #707070,
+    3px -9px 11px 5px rgba(205, 205, 205, 0.43);
+  box-shadow: 0px 10px 13px -7px #707070,
+    3px -9px 11px 5px rgba(205, 205, 205, 0.43);
 }
 
-@media only screen and (max-width: 1000px)
-{
-  .hovereffect{
+@media only screen and (max-width: 1000px) {
+  .hovereffect {
     height: 40%;
   }
 }
 
-@media only screen and (min-width: 1000px) and (max-width:1500px)
-{
-  .hovereffect{
+@media only screen and (min-width: 1000px) and (max-width: 1500px) {
+  .hovereffect {
     height: 80%;
   }
 }
@@ -79,15 +77,14 @@ button.right{
   padding: 50px 20px;
 }
 
-.col{
+.col {
   padding-left: 0%;
   padding-right: 0%;
   margin: 0%;
 }
 
-p{
+p {
   font-size: 1vw;
-
 }
 /* CSS */
 .button-56 {
@@ -96,8 +93,8 @@ p{
   border: 2px solid #023472;
   border-radius: 8px;
   box-sizing: border-box;
-  color:  #0a2963;
-  font-weight: 1000;
+  color: #0a2963;
+  font-weight: 900;
   cursor: pointer;
   height: 3vw;
   display: flex;
@@ -125,32 +122,25 @@ p{
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
-}
-
-
-
-.button-56:hover:after {
-  transform: translate(0, 0);
 }
 
 .button-56:active {
   background-color: #ffdeda;
-  outline: 0;
 }
 
 .button-56:hover {
   background-color: #eddebe67 !important;
-  cursor:auto;
-  align-items: flex-start ;
+  cursor: auto;
+  align-items: flex-start;
   font-size: 1.7vw;
   outline: 0;
   border: 3px solid;
   transition: 0.2s;
 }
 
-.hide{
+.hide {
   margin-top: 9%;
   display: none;
 }
@@ -163,28 +153,26 @@ p{
   transition: 0.2s;
 }
 
-
 @media (min-width: 768px) {
   .button-56 {
     padding: 0 40px;
   }
 }
 
-.form-control img{
-  height:10vw;
+.form-control img {
+  height: 10vw;
   width: 11vw;
   position: absolute;
   bottom: 10px;
-  mix-blend-mode:darken;
-  
+  mix-blend-mode: darken;
 }
 
-.button-56:hover img{
+.button-56:hover img {
   height: 11vw;
   width: 12vw;
 }
 
-.container-fluid{
+.container-fluid {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -197,4 +185,3 @@ p{
   padding: 0% !important;
   background-color: #eddebe;
 }
-

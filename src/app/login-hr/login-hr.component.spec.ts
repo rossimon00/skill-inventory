@@ -8,7 +8,7 @@ describe('LoginHrComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginHrComponent]
+      declarations: [LoginHrComponent],
     });
     fixture = TestBed.createComponent(LoginHrComponent);
     component = fixture.componentInstance;

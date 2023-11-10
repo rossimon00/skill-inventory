@@ -8,7 +8,7 @@ describe('InserisciTecnologiaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InserisciTecnologiaComponent]
+      declarations: [InserisciTecnologiaComponent],
     });
     fixture = TestBed.createComponent(InserisciTecnologiaComponent);
     component = fixture.componentInstance;

@@ -1,0 +1,76 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" autocomplete="new-password">
+    <div class="row">
+      <!-- nome -->
+      <label for="nome">Nome:</label>
+      <input
+        #nome
+        class="form-control shadow"
+        type="text"
+        placeholder="Nome"
+        name="nome"
+        id="nome"
+        required
+        [(ngModel)]="utenteHr.nome"
+      />
+
+      <!-- Cognome -->
+      <label for="cognome">Cognome:</label>
+      <input
+        #cognome
+        class="form-control shadow"
+        type="text"
+        placeholder="Cognome"
+        name="cognome"
+        id="cognome"
+        required
+        [(ngModel)]="utenteHr.cognome"
+      />
+
+      <!-- email -->
+      <label for="email">Email Aziendale:</label>
+      <input
+        #email
+        class="form-control shadow"
+        type="email"
+        placeholder="nome.cognome@proconsul-group.com"
+        name="email"
+        id="email"
+        required
+        [(ngModel)]="utenteHr.email"
+      />
+
+      <!-- password-->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          #password
+          maxlength="32"
+          name="data"
+          type="password"
+          class="form-control shadow"
+          placeholder="Password"
+          name="password"
+          id="password"
+          required
+          [(ngModel)]="utenteHr.password"
+        />
+      </div>
+
+      <!--Ruolo-->
+      <div class="form-group">
+        <label for="codiceFiscale">Ruolo:</label>
+        <input
+          class="form-control shadow"
+          style="text-transform: lowercase"
+          type="text"
+          placeholder="Ruolo"
+          name="rouolo"
+          id="ruolo"
+          required
+          [(ngModel)]="utenteHr.nome"
+        />
+      </div>
+    </div>
+  </form>
+</div>

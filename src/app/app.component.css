@@ -1,20 +1,19 @@
 img {
-    width: 40%;
+  width: 40%;
 
-    height: auto;
-  }
+  height: auto;
+}
 
-  .logout:hover {
+.logout:hover {
   text-decoration: underline !important;
-  color:white;
-  }
+  color: white;
+}
 
-  .logout{
-    display: flex;
-     align-items: center;
-     flex-direction: row;
-     cursor: pointer;
-     margin-top: 2%;
-      margin-left: 35%;
-      
-  }
+.logout {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  margin-top: 2%;
+  margin-left: 35%;
+}

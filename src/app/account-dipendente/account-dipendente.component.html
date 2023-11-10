@@ -1,77 +1,197 @@
-
-
-
-
-<div style="margin-top: 3%;" class="container mt-100">
-  <form  (ngSubmit)="onSubmit()" autocomplete="new-password">
-      <!-- codice fiscale -->
-      <div class="row">
+<div style="margin-top: 3%" class="container mt-100">
+  <form (ngSubmit)="onSubmit()" autocomplete="new-password">
+    <!-- codice fiscale -->
+    <div class="row">
       <div class="col">
-      <div class="form-group">
-          <label for="codiceFiscale" >Codice Fiscale:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" style="text-transform: uppercase;" type="text" placeholder="Codice Fiscale" name="Il codice fiscale " id="codiceFiscale"  required
-          [(ngModel)]="dipendente.codiceFiscale">
-      </div>
-      <!-- nome -->
-          <label for="nome" >Nome:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="Mario" name=" nome  " id="nome" required
-          [(ngModel)]="dipendente.nome">
-      
-      <!-- Cognome -->
-          <label for="cognome" >Cognome:</label>
-          <input class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="Rossi" name=" cognome  " id="cognome" required
-          [(ngModel)]="dipendente.cognome">
-      
-      <!-- password-->
-          <div class="form-group">
-              <label for="password">Vecchia Password:</label>
-              <input   maxlength="32" type="password" class="form-control shadow "  (input)="controlloGiustizia() "  placeholder="..............." [(ngModel)]="dipendente.password" name="La password " id="password">
-          </div>
-          
-          <label for="nuovaPassword">Nuova Password:</label>
-          <input type="password" (input)="vero()" class="form-control shadow" [(ngModel)]="nuovaPassword" placeholder="..............." name="nuovapass">
-          
-          <label for="nuovaPass">Conferma nuova Password:</label><label *ngIf="!verita" style="color: rgb(142, 31, 31);font-size: 1vw;" >&nbsp;&nbsp;(Le due password sono diverse!)</label>
-          <input type="password" (input)="vero()" class="form-control shadow" placeholder="..............." [(ngModel)]="confermaPassword" name="confermaPassword">
+        <div class="form-group">
+          <label for="codiceFiscale">Codice Fiscale:</label>
+          <input
+            class="form-control shadow"
+            (input)="controlloGiustizia()"
+            style="text-transform: uppercase"
+            type="text"
+            placeholder="Codice Fiscale"
+            name="Il codice fiscale "
+            id="codiceFiscale"
+            required
+            [(ngModel)]="dipendente.codiceFiscale"
+          />
         </div>
+        <!-- nome -->
+        <label for="nome">Nome:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="Mario"
+          name=" nome  "
+          id="nome"
+          required
+          [(ngModel)]="dipendente.nome"
+        />
+
+        <!-- Cognome -->
+        <label for="cognome">Cognome:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="Rossi"
+          name=" cognome  "
+          id="cognome"
+          required
+          [(ngModel)]="dipendente.cognome"
+        />
+
+        <!-- password-->
+        <div class="form-group">
+          <label for="password">Vecchia Password:</label>
+          <input
+            maxlength="32"
+            type="password"
+            class="form-control shadow"
+            (input)="controlloGiustizia()"
+            placeholder="..............."
+            [(ngModel)]="dipendente.password"
+            name="La password "
+            id="password"
+          />
+        </div>
+
+        <label for="nuovaPassword">Nuova Password:</label>
+        <input
+          type="password"
+          (input)="vero()"
+          class="form-control shadow"
+          [(ngModel)]="nuovaPassword"
+          placeholder="..............."
+          name="nuovapass"
+        />
+
+        <label for="nuovaPass">Conferma nuova Password:</label
+        ><label *ngIf="!verita" style="color: rgb(142, 31, 31); font-size: 1vw"
+          >&nbsp;&nbsp;(Le due password sono diverse!)</label
+        >
+        <input
+          type="password"
+          (input)="vero()"
+          class="form-control shadow"
+          placeholder="..............."
+          [(ngModel)]="confermaPassword"
+          name="confermaPassword"
+        />
+      </div>
       <!-- data di nascita -->
-          <div class="col" style="margin-left: 1%;">
+      <div class="col" style="margin-left: 1%">
+        <label for="la data di nascita">Data di Nascita:</label>
+        <input
+          class="form-control shadow"
+          type="date"
+          style="width: 100%"
+          placeholder=""
+          name=" dataDiNascita "
+          required
+          [(ngModel)]="dipendente.dataDiNascita"
+        />
 
-          <label for="la data di nascita" >Data di Nascita:</label>
-          <input  class="form-control  shadow "  type="date" style="width: 100%;" placeholder="" name=" dataDiNascita "  required
-          [(ngModel)]="dipendente.dataDiNascita">
-         
-      <!-- luogo di nascita -->
-          <label for=" luogo di nascita" >Luogo di Nascita:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="Roma" name=" cittaNatale " id="luogo" required
-          [(ngModel)]="dipendente.cittaNatale">
-      
-      <!-- via di residenza -->
-          <label for="l'indirizzo" >Via di Residenza:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="Via Roma" name="l'indirizzo " id="indirizzo" required
-          [(ngModel)]="dipendente.indirizzo">
-      
-      <!-- città di residenza -->
-          <label for="cittaResidenza" >Città di Residenza:</label>
-          <input class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="Roma" name=" cittaResidenza " id="citta" required
-          [(ngModel)]="dipendente.cittaResidenza">
-      
-      <!-- cap di residenza -->
-          <label for="cap" >CAP di Residenza:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" type="text" placeholder="00154" name="Il cap " id="cap" required
-          [(ngModel)]="dipendente.cap">
+        <!-- luogo di nascita -->
+        <label for=" luogo di nascita">Luogo di Nascita:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="Roma"
+          name=" cittaNatale "
+          id="luogo"
+          required
+          [(ngModel)]="dipendente.cittaNatale"
+        />
 
-      <!-- recapito telefonico -->
-          <label for="numeroTelefonico" >Recapito Telefonico:</label>
-          <input  class="form-control shadow "  (input)="controlloGiustizia()" maxlength="12" type="text" placeholder="+39...." name="Il recapito telefonico " id="tel" required
-          [(ngModel)]="dipendente.numeroTelefonico">
-              
+        <!-- via di residenza -->
+        <label for="l'indirizzo">Via di Residenza:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="Via Roma"
+          name="l'indirizzo "
+          id="indirizzo"
+          required
+          [(ngModel)]="dipendente.indirizzo"
+        />
+
+        <!-- città di residenza -->
+        <label for="cittaResidenza">Città di Residenza:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="Roma"
+          name=" cittaResidenza "
+          id="citta"
+          required
+          [(ngModel)]="dipendente.cittaResidenza"
+        />
+
+        <!-- cap di residenza -->
+        <label for="cap">CAP di Residenza:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          type="text"
+          placeholder="00154"
+          name="Il cap "
+          id="cap"
+          required
+          [(ngModel)]="dipendente.cap"
+        />
+
+        <!-- recapito telefonico -->
+        <label for="numeroTelefonico">Recapito Telefonico:</label>
+        <input
+          class="form-control shadow"
+          (input)="controlloGiustizia()"
+          maxlength="12"
+          type="text"
+          placeholder="+39...."
+          name="Il recapito telefonico "
+          id="tel"
+          required
+          [(ngModel)]="dipendente.numeroTelefonico"
+        />
       </div>
-      </div>
-      <div *ngIf="!this.giustizia" style="height: 4%;text-align: center;margin-top: 2%;font-size: 1.4vw !important; font-weight: 1000;color: rgb(142, 31, 31);">Attenzione! potrai registrarti solamente dopo aver compilato tutti i campi in modo corretto.</div>
-         <div *ngIf="this.giustizia" style=" display: flex;justify-content: center;margin-top: 4%;">      
-              <button class="form-control shadow button-56"  type="submit" style="float: right !important; width: 30%; margin-top: 1%;height: 2.2vw;align-items: center;">SALVA</button>
-          </div>      
+    </div>
+    <div
+      *ngIf="!this.giustizia"
+      style="
+        height: 4%;
+        text-align: center;
+        margin-top: 2%;
+        font-size: 1.4vw !important;
+        font-weight: 1000;
+        color: rgb(142, 31, 31);
+      "
+    >
+      Attenzione! potrai registrarti solamente dopo aver compilato tutti i campi
+      in modo corretto.
+    </div>
+    <div
+      *ngIf="this.giustizia"
+      style="display: flex; justify-content: center; margin-top: 4%"
+    >
+      <button
+        class="form-control shadow button-56"
+        type="submit"
+        style="
+          float: right !important;
+          width: 30%;
+          margin-top: 1%;
+          height: 2.2vw;
+          align-items: center;
+        "
+      >
+        SALVA
+      </button>
+    </div>
   </form>
- 
 </div>

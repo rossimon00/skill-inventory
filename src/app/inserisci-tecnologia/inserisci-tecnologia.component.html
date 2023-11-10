@@ -1,18 +1,102 @@
-<div  style="position: absolute;left: 10%;width: 80%;display: flex;justify-content: center;flex-direction: column;padding-top: 0% !important;align-items: flex-start;">
-     <table style="color: #25438b;" class=" shadow table table-striped  table-bordered" style="margin-top: 3%;">
-        <thead>
-            <tr>
-                <th style="text-align: center;font-size: 1.5vw;width: 50%; ">Tecnologia</th>
-                <th style="text-align: center;font-size: 1.5vw;">Categoria</th></tr></thead><tbody><tr *ngFor="let tecnologia of tecnologie| async;index as i">
-        <td class="align-middle">{{tecnologia.nome}}</td >
-        <td class="align-middle">{{tecnologia.categoria.nome}}</td>
-    </tr></tbody></table>
-<table style="color: #25438b !important;" class="container-sm shadow table table-striped  table-bordered" style="margin-bottom:5%;margin-top: 5%;"><tbody>
-    <tr  > <td class="align-middle" style="width: 50%;"><input type="text" placeholder="Nuova Tecnologia..." style="height: 100%;width: 100%;background-color: transparent !important; border: none;text-align: center;" name="tecnologia" [(ngModel)]="tecnologia.nome"></td >
-        <td class="align-middle">  <div class="custom-select " style="border: none !important;"><select  required style="display: flex;height: 100%;width: 100%;background-color: transparent !important; border: none !important;justify-content: center;" name="categoria" [(ngModel)]="tecnologia.categoria.nome" >
-                <option value="" disabled>Scegli una categoria</option>
-            <option *ngFor="let categoria of categories| async;index as i" class="form-select"  value="{{categoria.nome}}">{{categoria.nome}}</option></select></div></td> </tr>
-</tbody></table>
- <div *ngIf="tecnologia.categoria.nome!=='' && tecnologia.nome!==''" style="display: flex;justify-content: center !important; width: 100%;"><button (click)="onSubmit()" class="button-56" type="submit" style="background-color: #25448b00;font-size: 1.4vw;display: flex;align-items: center;">SALVA</button></div>
-
+<div
+  style="
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 0% !important;
+    align-items: flex-start;
+  "
+>
+  <table
+    style="color: #25438b"
+    class="shadow table table-striped table-bordered"
+    style="margin-top: 3%"
+  >
+    <thead>
+      <tr>
+        <th style="text-align: center; font-size: 1.5vw; width: 50%">
+          Tecnologia
+        </th>
+        <th style="text-align: center; font-size: 1.5vw">Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tecnologia of tecnologie | async; index as i">
+        <td class="align-middle">{{ tecnologia.nome }}</td>
+        <td class="align-middle">{{ tecnologia.categoria.nome }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table
+    style="color: #25438b !important"
+    class="container-sm shadow table table-striped table-bordered"
+    style="margin-bottom: 5%; margin-top: 5%"
+  >
+    <tbody>
+      <tr>
+        <td class="align-middle" style="width: 50%">
+          <input
+            type="text"
+            placeholder="Nuova Tecnologia..."
+            style="
+              height: 100%;
+              width: 100%;
+              background-color: transparent !important;
+              border: none;
+              text-align: center;
+            "
+            name="tecnologia"
+            [(ngModel)]="tecnologia.nome"
+          />
+        </td>
+        <td class="align-middle">
+          <div class="custom-select" style="border: none !important">
+            <select
+              required
+              style="
+                display: flex;
+                height: 100%;
+                width: 100%;
+                background-color: transparent !important;
+                border: none !important;
+                justify-content: center;
+              "
+              name="categoria"
+              [(ngModel)]="tecnologia.categoria.nome"
+            >
+              <option value="" disabled>Scegli una categoria</option>
+              <option
+                *ngFor="let categoria of categories | async; index as i"
+                class="form-select"
+                value="{{ categoria.nome }}"
+              >
+                {{ categoria.nome }}
+              </option>
+            </select>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="tecnologia.categoria.nome !== '' && tecnologia.nome !== ''"
+    style="display: flex; justify-content: center !important; width: 100%"
+  >
+    <button
+      (click)="onSubmit()"
+      class="button-56"
+      type="submit"
+      style="
+        background-color: #25448b00;
+        font-size: 1.4vw;
+        display: flex;
+        align-items: center;
+      "
+    >
+      SALVA
+    </button>
+  </div>
 </div>

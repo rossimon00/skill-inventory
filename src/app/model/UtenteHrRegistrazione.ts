@@ -1,21 +1,22 @@
-export class UtenteHr {
-  ruolo: string;
+export class UtenteHrRegistrazione {
   nome: string;
   cognome: string;
   email: string;
   password: string;
+  ruolo: string;
 
   constructor(
-    ruolo: string,
     nome: string,
     cognome: string,
     email: string,
-    password: string
+    password: string,
+    ruolo: string
   ) {
-    this.ruolo = ruolo;
     this.nome = nome;
     this.cognome = cognome;
     this.email = email;
     this.password = password;
+    this.ruolo = ruolo;
   }
+    
 }

@@ -1,31 +1,34 @@
-label{
-    font-size: 1.4vw;
-    color: #0a2963;
+label {
+  font-size: 1.4vw;
+  color: #0a2963;
 }
 
-input{
-    background-color: #d4b269 !important;
+input {
+  background-color: #d4b269 !important;
 }
 
-input:focus{
-    background-color: #d4b269 !important;
-    color: #0a2963;
-    border: 5px solid #0a2963!important ;
+input:focus {
+  background-color: #d4b269 !important;
+  color: #0a2963;
+  border: 5px solid #0a2963 !important ;
 }
 
-.button-56::after{
-    height: 110%;
+.button-56::after {
+  height: 110%;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
-.ng-star-inserted{
-    width: 100%;
+.ng-star-inserted {
+  width: 100%;
 }
 
-:host ::ng-deep .mat-form-field-wrapper{
-    margin-bottom: -1.25em;
- }
- 
+:host ::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+.row {
+  margin-top: 50px;
+}
