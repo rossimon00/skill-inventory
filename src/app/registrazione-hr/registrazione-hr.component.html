@@ -1,48 +1,54 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()" autocomplete="new-password">
-    <div class="row">
-      <!-- nome -->
-      <label for="nome">Nome:</label>
-      <input
-        #nome
-        class="form-control shadow"
-        type="text"
-        placeholder="Nome"
-        name="nome"
-        id="nome"
-        required
-        [(ngModel)]="utenteHr.nome"
-      />
+  <div class="form-group mt-5">
+    <form (ngSubmit)="onSubmit()" autocomplete="new-password">
+      <div class="row">
+        <!-- nome -->
+        <label class="mt-3" for="nome">Nome:</label>
+        <input
+          #nome
+          class="form-control shadow"
+          type="text"
+          placeholder="Nome"
+          name="nome"
+          id="nome"
+          required
+          [(ngModel)]="utenteHr.nome"
+          (input)="capitalizeFirstLetter('nome')"
+          (input)="validateInput('nome')"
+        />
 
-      <!-- Cognome -->
-      <label for="cognome">Cognome:</label>
-      <input
-        #cognome
-        class="form-control shadow"
-        type="text"
-        placeholder="Cognome"
-        name="cognome"
-        id="cognome"
-        required
-        [(ngModel)]="utenteHr.cognome"
-      />
+        <!-- cognome -->
+        <label class="mt-3" for="cognome">Cognome:</label>
+        <input
+          #cognome
+          class="form-control shadow"
+          type="text"
+          placeholder="Cognome"
+          name="cognome"
+          id="cognome"
+          required
+          [(ngModel)]="utenteHr.cognome"
+          (input)="capitalizeFirstLetter('cognome')"
+          (input)="validateInput('cognome')"
+        />
 
-      <!-- email -->
-      <label for="email">Email Aziendale:</label>
-      <input
-        #email
-        class="form-control shadow"
-        type="email"
-        placeholder="nome.cognome@proconsul-group.com"
-        name="email"
-        id="email"
-        required
-        [(ngModel)]="utenteHr.email"
-      />
+        <!-- email -->
+        <label class="mt-3" for="email">Email Aziendale:</label>
+        <input
+          #email
+          class="form-control shadow"
+          type="email"
+          placeholder="nome.cognome@proconsul-group.com"
+          name="email"
+          id="email"
+          required
+          [(ngModel)]="utenteHr.email"
+          (input)="toLowerCase('email')"
+          (input)="validateInput('email')"
+        />
 
-      <!-- password-->
-      <div class="form-group">
-        <label for="password">Password:</label>
+        <!-- password -->
+        <label class="mt-3" for="password">Password:</label>
         <input
           #password
           maxlength="32"
@@ -54,23 +60,49 @@
           id="password"
           required
           [(ngModel)]="utenteHr.password"
+          (input)="validateInput('password')"
         />
-      </div>
 
-      <!--Ruolo-->
-      <div class="form-group">
-        <label for="codiceFiscale">Ruolo:</label>
+        <!-- ruolo -->
+        <label class="mt-3" for="ruolo">Ruolo:</label>
         <input
-          class="form-control shadow"
-          style="text-transform: lowercase"
+          class="form-control shadow mb-5"
           type="text"
           placeholder="Ruolo"
-          name="rouolo"
+          name="ruolo"
           id="ruolo"
           required
-          [(ngModel)]="utenteHr.nome"
+          [(ngModel)]="utenteHr.ruolo"
+          (input)="validateInput('ruolo')"
         />
       </div>
-    </div>
-  </form>
+    </form>
+
+    <button
+      class="form-control shadow button-56"
+      type="submit"
+      style="
+        float: right !important;
+        width: 30%;
+        margin-top: 1%;
+        height: 2.2vw;
+        align-items: center;
+      "
+      *ngIf="isRegistrationValid"
+      (click)="onSubmit()"
+    >
+      Registra utente hr
+    </button>
+  </div>
+
+  <!-- Mostra messaggi di errore -->
+  <div *ngIf="passwordErrorMessage" class="error-message">
+    {{ passwordErrorMessage }}
+  </div>
+  <div *ngIf="ruoloErrorMessage" class="error-message">
+    {{ ruoloErrorMessage }}
+  </div>
+  <div *ngIf="emailErrorMessage" class="error-message">
+    {{ emailErrorMessage }}
+  </div>
 </div>

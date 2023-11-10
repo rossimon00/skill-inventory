@@ -15,8 +15,30 @@ export class ListaUtentiHrComponent {
     this.router.navigate(['modifica-utente-hr', email]);
   }
 
-  onDelete(email: string) {
-    this.router.navigate(['elimina-utente-hr', email]);
+  onDelete(email: string): void {
+    const conferma = window.confirm(
+      'Sei sicuro di voler eliminare questo utente HR?'
+    );
+
+    if (conferma) {
+      this.listaUtentiHrService.eliminaUtenteHr(email).subscribe({
+        next: (data) => {
+          alert('Cancellazione avvenuta con successo');
+          this.caricaListaUtentiHr();
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+          alert('Cancellazione fallita');
+        },
+      });
+    } else {
+      alert('Cancellazione annullata');
+    }
+  }
+
+  registraUtenteHt() {
+    this.router.navigate(['registrazione-hr']);
   }
 
   utentiHr!: Observable<ResponseData>;
@@ -35,5 +57,9 @@ export class ListaUtentiHrComponent {
       this.router.navigate(['/welcome']);
     }
     this.vediListaUtentiHr();
+  }
+
+  caricaListaUtentiHr(): void {
+    this.utentiHr = this.listaUtentiHrService.vediListaUtentiHrCustom();
   }
 }

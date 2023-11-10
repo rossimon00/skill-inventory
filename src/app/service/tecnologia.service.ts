@@ -162,4 +162,7 @@ export class TecnologiaService {
 
   }
 
+  eliminaUtenteHr(email: string): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/hr/cancellazione/${email}`);
+  }
 }

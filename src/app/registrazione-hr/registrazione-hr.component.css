@@ -1,0 +1,19 @@
+.error-message {
+  font-size: 2vw !important;
+  color: rgb(142, 31, 31);
+  margin-top: 5px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+input {
+  background-color: #d4b269 !important;
+}
+
+input:focus {
+  background-color: #d4b269 !important;
+  color: #0a2963;
+}
+
+input:hover {
+  background-color: #d4b269 !important;
+}
