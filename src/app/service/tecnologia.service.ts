@@ -141,4 +141,8 @@ export class TecnologiaService {
   registraUtenteHr(utenteHR: UtenteHrRegistrazione): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}/registrazione-hr`, utenteHR);
   }
+
+  eliminaUtenteHr(email: string): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/hr/cancellazione/${email}`);
+  }
 }
