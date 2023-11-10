@@ -15,6 +15,7 @@ import { ListaUtentiHrComponent } from './lista-utenti-hr/lista-utenti-hr.compon
 import { AccountUtenteHrComponent } from './account-utente-hr/account-utente-hr.component';
 import { RicercaDipendentiComponent } from './ricerca-dipendenti/ricerca-dipendenti.component';
 import { ListaCategorieComponent } from './lista-categorie/lista-categorie.component';
+import { RegistrazioneHrComponent } from './registrazione-hr/registrazione-hr.component';
 
 const routes: Routes = [
   { path: 'account-dipendente', component: AccountDipendenteComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'modifica-utente-hr/:email', component: AccountUtenteHrComponent },
   { path: 'ricerca-dipendenti', component: RicercaDipendentiComponent },
   { path: 'lista-tecnologie', component: ListaCategorieComponent },
+  { path: 'registrazione-hr', component: RegistrazioneHrComponent },
 ];
 
 @NgModule({
