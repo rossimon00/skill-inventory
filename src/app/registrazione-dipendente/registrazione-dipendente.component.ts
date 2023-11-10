@@ -58,12 +58,12 @@ export class RegistrazioneDipendenteComponent {
 
     this.dipendenteService.registraDipendente(this.dipendente).subscribe({
       next: (data) => {
-        alert('registrazione avvenuta correttamente');
+        alert('Registrazione avvenuta correttamente');
         console.log(data);
       },
       error: (error) => {
         console.log(error);
-        alert(error.error.message);
+        alert('Registrazione non riuscita');
       },
     });
   }
