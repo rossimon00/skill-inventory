@@ -2,18 +2,26 @@
     display: flex;
     justify-content: center;
     margin: 15px;
+    width: 70%;
 }
 
 .button-group button {
     margin: 0 15px;
 }
 
-body {
+button:hover {
+    cursor: pointer;
+  }
+  
+.button-56::after {
+height: 105%;
+}
+
+.body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
     margin-top: 3%;
 }
 
@@ -24,10 +32,22 @@ body {
 .checkbox-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .checkbox-group {
     flex-basis: calc(25%); /* Tre checkbox per riga */
     margin: 5px;
+}
+.mostraTutto {
+    max-width: 40%; 
+    margin-top: 5%;
+    background: none;
+    border: none;
+    color: #34557e;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.mostraTutto:hover {
+    color: #426a9b;
 }

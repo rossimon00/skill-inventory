@@ -1,23 +1,20 @@
-<body>
+<div class="body mt-5"> 
     <div class="button-group">
-      <button class="btn btn-primary" (click)="showAllCheckboxes = true; showAllLetters()">Mostra Tutto</button>
-      <button class="btn btn-primary" (click)="selectTutti()">Seleziona Tutto</button>
-      <button class="btn btn-primary" (click)="deselectTutti()">Deseleziona Tutto</button>
+      <button class="mostraTutto" (click)="selectTutti()">Seleziona Tutto</button>
+      <button class="mostraTutto" (click)="deselectTutti()">Deseleziona Tutto</button>
     </div>
-  
-    <div>
-      <button class="btn btn-primary" style="margin: 10px;" *ngFor="let letter of alphabet"
-        (click)="selectLetter(letter)">{{ letter }}</button>
-    </div>
-    <div class="checkbox-row" style="margin-left: 90px; margin-top: 20px; margin-bottom: 20px;">
-      <div style="margin: 10px;" class="checkbox-group" *ngFor="let value of values">
+    
+    <span style="background-color: #d4b269; width: 70%; height: 2px;"></span>
+    <div class="checkbox-row" style="margin: 2% 0; width: 70%;">
+      <div style="text-align: center;" class="checkbox-group" *ngFor="let value of values">
         <label style="margin: 5px;" class="form-check-label"
           *ngIf="showAllCheckboxes || (selectedLetter && value.toLowerCase().startsWith(selectedLetter.toLowerCase()))">
           <input class="form-check-input" type="checkbox" [value]="value" [checked]="checkboxStates[value]"
             (change)="onCheckboxChange($event, value)">
           {{ value }}
         </label>
+        
       </div>
     </div>
-    <button (click)="cerca()" class="btn btn-success">Cerca</button>
-  </body>
+    <button style="width: 70%;" (click)="cerca()" class="shadow form-control button-56 mt-5">Cerca tecnologie</button>
+  </div>
