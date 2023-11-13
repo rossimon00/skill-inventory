@@ -145,7 +145,7 @@ export class TecnologiaService {
 
   ricercaDipendenti(nomiTecnologie : string[]) : Observable<any[]>{
     
-    console.log(this.getToken());
+    console.log(nomiTecnologie);
     
     let pippo = this.httpClient.post<RicercaDipendenteTecnologia[]>(`${this.baseUrl}/dipendenti-per-tecnologie`, nomiTecnologie);
     console.log("ottengo: "+pippo);
@@ -153,7 +153,7 @@ export class TecnologiaService {
     return pippo;
 
   }
-
+  
   listaTecnologie() : Observable<string[]>{
     
     console.log("token: " +this.getToken());

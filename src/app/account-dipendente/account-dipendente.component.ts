@@ -37,7 +37,6 @@ export class AccountDipendenteComponent {
     } else {
       this.verita = false;
     }
-    console.log(this.confermaPassword + ' a ' + this.nuovaPassword);
   }
 
   onSubmit(): void {
@@ -52,16 +51,12 @@ export class AccountDipendenteComponent {
       ',"nuovaPassword":"' + this.nuovaPassword + '"}'
     );
 
-    console.log('bbbbbbbbaaa ' + jsonDipendente);
-
     this.dipendenteService.modificaDipendente(jsonDipendente).subscribe({
       next: (data) => {
         alert('Modifica avvenuta con successo');
-        console.log(data);
         this.dipendenteService.setNome(this.dipendente.nome);
       },
       error: (error) => {
-        console.log(error);
         alert('Modifica fallita');
       },
     });
@@ -88,9 +83,6 @@ export class AccountDipendenteComponent {
         (this.dipendente.dataDiNascita = value.dataDiNascita);
     });
 
-    console.log(this.dipendente.password);
-
-    console.log(this.dipendente);
   }
 
   controlloGiustizia() {

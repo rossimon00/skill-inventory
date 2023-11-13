@@ -36,6 +36,8 @@ export class ListaDiTecnologieComponent {
 
   showAllTechnologies(): void {
     this.tecnologie = this.tecnologiaService.trovaTutteLeTecnologie();
+    console.log(this.tecnologie);
+    
   }
 
   onSubmit(): void {
@@ -66,7 +68,6 @@ export class ListaDiTecnologieComponent {
     }
     this.dipendent = this.tecnologiaService.trovaIlDipendente();
     this.dipendent.subscribe((value) => {
-      console.log(value);
 
       this.dipendente.codiceFiscale = value.codiceFiscale;
       this.dipendente.cap = value.cap;
