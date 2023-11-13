@@ -20,3 +20,10 @@ input:focus {
 button:hover {
   cursor: pointer;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
+.lower-case {
+  text-transform: lowercase;
+}
