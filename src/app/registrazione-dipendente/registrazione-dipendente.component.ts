@@ -160,4 +160,21 @@ export class RegistrazioneDipendenteComponent {
 
     this.controlloGiustizia();
   }
+
+  validateEmail(): void {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|it)$/;
+
+    if (!emailPattern.test(this.dipendente.email.toLowerCase())) {
+      this.showMessage = 'email';
+      this.message =
+        'L\'email deve essere valida, contenere il simbolo "@" e avere un suffisso di dominio valido (.com o .it)';
+      this.inserimento.corretto = false;
+    } else {
+      this.showMessage = '';
+      this.message = '';
+      this.inserimento.corretto = true;
+    }
+
+    this.controlloGiustizia();
+  }
 }
