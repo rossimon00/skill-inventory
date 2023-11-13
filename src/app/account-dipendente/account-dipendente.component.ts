@@ -68,7 +68,7 @@ export class AccountDipendenteComponent {
   }
 
   ngOnInit() {
-    if (this.dipendenteService.getToken() === '') {
+    if (this.dipendenteService.getRuolo() !== '') {
       this.router.navigate(['/welcome']);
     }
     this.vero();
@@ -87,7 +87,6 @@ export class AccountDipendenteComponent {
         (this.messaggio = value.password),
         (this.dipendente.dataDiNascita = value.dataDiNascita);
     });
-
   }
 
   controlloGiustizia() {

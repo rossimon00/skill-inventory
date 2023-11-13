@@ -18,7 +18,7 @@ export class WelcomeDipendenteComponent {
   ) {}
 
   ngOnInit() {
-    if (this.dipendenteService.getToken() === '') {
+    if (this.dipendenteService.getRuolo() !== '') {
       this.router.navigate(['/welcome']);
     }
     this.dipendenteNome = this.dipendenteService.getNome();

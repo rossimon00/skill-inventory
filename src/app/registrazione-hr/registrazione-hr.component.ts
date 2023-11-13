@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UtenteHrRegistrazione } from '../model/UtenteHrRegistrazione';
 import { TecnologiaService } from '../service/tecnologia.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './registrazione-hr.component.html',
   styleUrls: ['./registrazione-hr.component.css'],
 })
-export class RegistrazioneHrComponent {
+export class RegistrazioneHrComponent implements OnInit {
   passwordErrorMessage: string = '';
   ruoloErrorMessage: string = '';
   isRegistrationValid: boolean = false;
@@ -26,6 +26,12 @@ export class RegistrazioneHrComponent {
     private registrazioneUtenteHr: TecnologiaService,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    if (this.registrazioneUtenteHr.getRuolo() !== 'admin') {
+      this.router.navigate(['/welcome']);
+    }
+  }
 
   validateRegistration(): void {
     const allowedRoles = ['user', 'admin'];

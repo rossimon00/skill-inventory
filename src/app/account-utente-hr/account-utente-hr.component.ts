@@ -39,7 +39,7 @@ export class AccountUtenteHrComponent {
   ) {}
 
   ngOnInit() {
-    if (this.utenteHrService.getToken() === '') {
+    if (this.utenteHrService.getRuolo() !== 'admin') {
       this.router.navigate(['/welcome']);
     }
 
@@ -76,10 +76,6 @@ export class AccountUtenteHrComponent {
   onSubmit(): void {
     if (this.utenteHr.password === '') {
       this.utenteHr.password = this.messaggio;
-    }
-    if (this.confermaPassword !== this.nuovaPassword) {
-      alert('Nuova password e conferma nuova password devono essere uguali');
-      return;
     }
 
     let jsonDipendente = JSON.stringify(this.utenteHr);

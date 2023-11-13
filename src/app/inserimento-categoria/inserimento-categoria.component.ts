@@ -20,9 +20,12 @@ export class InserimentoCategoriaComponent {
   ) {}
 
   ngOnInit() {
-    if (this.tecnologiaService.getToken() === '') {
+    if (
+      this.tecnologiaService.getRuolo() !== 'admin' 
+    ) {
       this.router.navigate(['/welcome']);
     }
+
     this.categories = this.tecnologiaService.trovaTutteleCategorie();
   }
 
@@ -33,7 +36,7 @@ export class InserimentoCategoriaComponent {
         window.location.reload();
       },
       (err) => {
-        console.error(err);
+        alert('Non puoi inserire una categoria già esistente');
       }
     );
   }

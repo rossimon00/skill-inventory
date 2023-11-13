@@ -59,6 +59,7 @@ export class RegistrazioneDipendenteComponent {
     this.dipendenteService.registraDipendente(this.dipendente).subscribe({
       next: (data) => {
         alert('Registrazione avvenuta correttamente');
+        this.router.navigate(['/login']);
         console.log(data);
       },
       error: (error) => {

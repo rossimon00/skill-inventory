@@ -107,11 +107,10 @@ p {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
-.button-56:after {
+.button-56::after {
   background-color: #d4b269;
   border-radius: 8px;
   content: "";
@@ -134,7 +133,6 @@ p {
   background-color: #eddebe67 !important;
   cursor: pointer;
   align-items: flex-start;
-  font-size: 1.7vw;
   outline: 0;
   border: 3px solid;
   transition: 0.2s;

@@ -22,7 +22,7 @@ export class InserisciTecnologiaComponent {
   ) {}
 
   ngOnInit() {
-    if (this.tecnologiaService.getToken() === '') {
+    if (this.tecnologiaService.getRuolo() !== 'admin') {
       this.router.navigate(['/welcome']);
     }
     this.tecnologie = this.tecnologiaService.trovaTecnologie();
@@ -39,7 +39,11 @@ export class InserisciTecnologiaComponent {
         window.location.reload();
       },
       (err) => {
-        console.error(err);
+        alert(
+          'Attenzione la tecnologia ' +
+            this.tecnologia.nome +
+            ' è gia presente nel sistema'
+        );
       }
     );
   }

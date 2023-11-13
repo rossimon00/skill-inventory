@@ -6,7 +6,7 @@ import { DipendenteTecnologia } from './../model/dipendenteTecnologia';
 import { TecnologiaService } from '../service/tecnologia.service';
 import { Observable } from 'rxjs';
 
-import { Component, numberAttribute } from '@angular/core';
+import { Component, OnInit, numberAttribute } from '@angular/core';
 import { Dipendente } from '../model/dipendente';
 
 @Component({
@@ -14,7 +14,7 @@ import { Dipendente } from '../model/dipendente';
   templateUrl: './lista-di-tecnologie.component.html',
   styleUrls: ['./lista-di-tecnologie.component.css'],
 })
-export class ListaDiTecnologieComponent {
+export class ListaDiTecnologieComponent implements OnInit {
   currentmessage!: Observable<any>;
   message1 = '';
   competenza: string[] = [];
@@ -29,6 +29,7 @@ export class ListaDiTecnologieComponent {
   dipendenteTecnologiaId!: DipendenteTecnologiaId;
   dipendenteTecnologia!: DipendenteTecnologia;
   dipendent!: Observable<Dipendente>;
+
   constructor(
     private router: Router,
     private tecnologiaService: TecnologiaService
@@ -37,7 +38,6 @@ export class ListaDiTecnologieComponent {
   showAllTechnologies(): void {
     this.tecnologie = this.tecnologiaService.trovaTutteLeTecnologie();
     console.log(this.tecnologie);
-    
   }
 
   onSubmit(): void {
@@ -63,12 +63,16 @@ export class ListaDiTecnologieComponent {
   }
 
   ngOnInit(): void {
-    if (this.tecnologiaService.getToken() === '') {
+    console.log('pippo');
+
+    if (
+      this.tecnologiaService.getRuolo() !== 'user' ||
+      this.tecnologiaService.getRuolo() !== 'admin'
+    ) {
       this.router.navigate(['/welcome']);
     }
     this.dipendent = this.tecnologiaService.trovaIlDipendente();
     this.dipendent.subscribe((value) => {
-
       this.dipendente.codiceFiscale = value.codiceFiscale;
       this.dipendente.cap = value.cap;
       (this.dipendente.cittaNatale = value.cittaNatale),

@@ -6,11 +6,9 @@ import { TecnologiaService } from '../service/tecnologia.service';
 @Component({
   selector: 'app-lista-categorie',
   templateUrl: './lista-categorie.component.html',
-  styleUrls: ['./lista-categorie.component.css']
+  styleUrls: ['./lista-categorie.component.css'],
 })
-
-export class ListaCategorieComponent implements OnInit{
-
+export class ListaCategorieComponent implements OnInit {
   values: string[] = [];
   selectedValues: string[] = [];
   selectedLetter: string | null = null;
@@ -20,44 +18,52 @@ export class ListaCategorieComponent implements OnInit{
   checkboxStates: { [key: string]: boolean } = {};
   selectedCheckboxValues: string[] = [];
 
-  constructor(private tecnologiaDipendenteService : TecnologiaService, private router : Router){
-    this.values.forEach(value => {
+  constructor(
+    private tecnologiaDipendenteService: TecnologiaService,
+    private router: Router
+  ) {
+    this.values.forEach((value) => {
       this.checkboxStates[value] = true;
     });
-  };
+  }
 
-  trasformaJson(){
+  trasformaJson() {
+    const jsonData$: Observable<any[]> =
+      this.tecnologiaDipendenteService.listaTecnologie();
 
-    const jsonData$ : Observable<any[]> = this.tecnologiaDipendenteService.listaTecnologie();
-
-    jsonData$.pipe(
-      map(data => data.map(item => item.nome))
-    ).subscribe(result => {
-      this.values = result;
-    })
-
+    jsonData$
+      .pipe(map((data) => data.map((item) => item.nome)))
+      .subscribe((result) => {
+        this.values = result;
+      });
   }
 
   getAvailableLetters(): string[] {
     const uniqueLetters = new Set<string>();
-    this.values.forEach(value => {
+    this.values.forEach((value) => {
       const firstLetter = value.charAt(0).toUpperCase();
       uniqueLetters.add(firstLetter);
     });
     return Array.from(uniqueLetters).sort();
   }
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {
+    if (
+      this.tecnologiaDipendenteService.getRuolo() === 'user' ||
+      this.tecnologiaDipendenteService.getRuolo() === 'admin'
+    ) {
+      this.router.navigate(['/welcome']);
+    }
+
     this.trasformaJson();
     setTimeout(() => {
       this.alphabet = this.getAvailableLetters();
     }, 50);
   }
-  
+
   onCheckboxChange(event: any, value: string): void {
     this.checkboxStates[value] = event.target.checked;
-  
+
     if (event.target.checked) {
       this.selectedCheckboxValues.push(value);
     } else {
@@ -70,15 +76,15 @@ export class ListaCategorieComponent implements OnInit{
 
   selectLetter(letter: string) {
     this.selectedLetter = letter;
-    this.selectedValues = this.values.filter(value =>
+    this.selectedValues = this.values.filter((value) =>
       value.toLowerCase().startsWith(letter.toLowerCase())
     );
     this.showAllCheckboxes = false;
   }
 
   showAllLetters() {
-    this.selectedValues = this.values.filter(value =>
-      this.checkboxStates[value]
+    this.selectedValues = this.values.filter(
+      (value) => this.checkboxStates[value]
     );
     this.selectedLetter = null; // Imposta la lettera selezionata su null per mostrare tutti i checkbox
   }
@@ -89,7 +95,7 @@ export class ListaCategorieComponent implements OnInit{
       this.checkboxStates[value] = true;
     }
   }
-  
+
   deselectTutti() {
     // Imposta lo stato di tutti i checkbox su false
     for (const value of this.values) {
@@ -97,18 +103,19 @@ export class ListaCategorieComponent implements OnInit{
     }
   }
 
-  cerca() : void {
-
+  cerca(): void {
     this.selectedValues = []; // Inizializza l'array vuoto
 
-  // Verifica quali checkbox sono selezionati e aggiungi il label all'array
-  this.values.forEach(value => {
-    if (this.checkboxStates[value]) {
-      this.selectedValues.push(value);
-    }
-  });
+    // Verifica quali checkbox sono selezionati e aggiungi il label all'array
+    this.values.forEach((value) => {
+      if (this.checkboxStates[value]) {
+        this.selectedValues.push(value);
+      }
+    });
 
-    this.router.navigate(['/ricerca-dipendenti',  { selectedValues: this.selectedValues }]);
-
+    this.router.navigate([
+      '/ricerca-dipendenti',
+      { selectedValues: this.selectedValues },
+    ]);
   }
 }

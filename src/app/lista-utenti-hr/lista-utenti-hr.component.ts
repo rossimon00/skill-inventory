@@ -53,7 +53,7 @@ export class ListaUtentiHrComponent {
   }
 
   ngOnInit(): void {
-    if (this.listaUtentiHrService.getToken() === '') {
+    if (this.listaUtentiHrService.getRuolo() !== 'admin') {
       this.router.navigate(['/welcome']);
     }
     this.vediListaUtentiHr();

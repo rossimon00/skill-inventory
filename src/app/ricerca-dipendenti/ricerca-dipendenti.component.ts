@@ -26,6 +26,13 @@ export class RicercaDipendentiComponent {
   ) {}
 
   ngOnInit(): void {
+    if (
+      this.dipendentiService.getRuolo() !== 'user' ||
+      this.dipendentiService.getRuolo() !== 'admin'
+    ) {
+      this.router.navigate(['/welcome']);
+    }
+
     this.route.params.subscribe((params) => {
       const selectedValuesString = params['selectedValues'];
       this.selectedValues = selectedValuesString.split(',');

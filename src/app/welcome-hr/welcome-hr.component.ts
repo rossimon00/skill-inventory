@@ -14,11 +14,16 @@ export class WelcomeHrComponent {
   utenteRuolo!: string | null;
   dipendenteNome!: string | null;
 
-  constructor(private dipendenteService: TecnologiaService, private router: Router) {}
+  constructor(
+    private dipendenteService: TecnologiaService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-
-    if (this.dipendenteService.getToken() === '') {
+    if (
+      this.dipendenteService.getRuolo() !== 'admin' ||
+      this.dipendenteService.getRuolo() !== 'user'
+    ) {
       this.router.navigate(['/welcome']);
     }
 

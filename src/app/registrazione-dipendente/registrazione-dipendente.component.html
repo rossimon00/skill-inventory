@@ -108,36 +108,14 @@
 
         <!-- data di nascita -->
         <label for="la data di nascita">Data di Nascita:</label>
-        <div
+        <input
           class="form-control shadow"
-          style="
-            background-color: #d4b269 !important;
-            display: flex;
-            align-items: center;
-          "
-        >
-          <input
-            matInput
-            [min]="minDate"
-            name="data"
-            [max]="maxDate"
-            [matDatepicker]="picker"
-            type="none"
-            [(ngModel)]="dipendente.dataDiNascita"
-            placeholder="Mese/Giorno/Anno"
-            style="
-              background: rgba(0, 0, 0, 0);
-              border: none !important;
-              outline: none;
-              width: 92%;
-            "
-          />
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </div>
+          type="date"
+          style="width: 100%"
+          name=" dataDiNascita "
+          required
+          [(ngModel)]="dipendente.dataDiNascita"
+        />
       </div>
       <div class="col" style="margin-left: 1%">
         <!-- luogo di nascita -->
