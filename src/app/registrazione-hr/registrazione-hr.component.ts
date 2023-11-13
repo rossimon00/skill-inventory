@@ -113,7 +113,7 @@ export class RegistrazioneHrComponent {
       },
       error: (error) => {
         console.log(error);
-        alert('Registrazione fallita');
+        alert('Registrazione non riuscita');
       },
     });
   }

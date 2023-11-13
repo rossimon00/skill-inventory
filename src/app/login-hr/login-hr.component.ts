@@ -24,7 +24,6 @@ export class LoginHrComponent {
     console.log(this.utente);
     this.dipendenteService.loginHr(this.utente).subscribe({
       next: (data) => {
-        alert('Hai acceduto correttamente');
         this.dipendenteService.setToken(data.token);
         this.router.navigate(['/welcome-hr']);
       },
