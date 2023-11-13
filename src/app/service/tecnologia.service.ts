@@ -145,18 +145,14 @@ export class TecnologiaService {
 
   ricercaDipendenti(nomiTecnologie : string[]) : Observable<any[]>{
     
-    console.log(nomiTecnologie);
+    let dipendenti = this.httpClient.post<RicercaDipendenteTecnologia[]>(`${this.baseUrl}/dipendenti-per-tecnologie`, nomiTecnologie);
     
-    let pippo = this.httpClient.post<RicercaDipendenteTecnologia[]>(`${this.baseUrl}/dipendenti-per-tecnologie`, nomiTecnologie);
-    console.log("ottengo: "+pippo);
-    
-    return pippo;
+    return dipendenti;
 
   }
   
   listaTecnologie() : Observable<string[]>{
     
-    console.log("token: " +this.getToken());
     
     return this.httpClient.get<string[]>(`${this.baseUrl}/hr/dipendenti-competenze/tecnologie`);
 
