@@ -14,6 +14,7 @@
             name="Il codice fiscale "
             id="codiceFiscale"
             required
+            disabled=""
             [(ngModel)]="dipendente.codiceFiscale"
           />
         </div>
@@ -172,8 +173,8 @@
         color: rgb(142, 31, 31);
       "
     >
-      Attenzione! potrai registrarti solamente dopo aver compilato tutti i campi
-      in modo corretto.
+      Attenzione! potrai modificare i tuoi dati solamente dopo aver compilato
+      tutti i campi in modo corretto.
     </div>
     <div
       *ngIf="this.giustizia"
@@ -190,7 +191,7 @@
           align-items: center;
         "
       >
-        SALVA
+        Salva Modifiche
       </button>
     </div>
   </form>
