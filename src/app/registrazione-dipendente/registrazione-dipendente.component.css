@@ -32,3 +32,10 @@ button:hover {
 .row {
   margin-top: 50px;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
+.lower-case {
+  text-transform: lowercase;
+}

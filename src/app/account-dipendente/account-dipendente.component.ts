@@ -45,6 +45,11 @@ export class AccountDipendenteComponent {
       this.dipendente.password = this.messaggio;
     }
 
+    if (this.confermaPassword !== this.nuovaPassword) {
+      alert('Nuova password e conferma nuova password devono essere uguali');
+      return;
+    }
+
     let jsonDipendente = JSON.stringify(this.dipendente);
 
     jsonDipendente = jsonDipendente.replace(

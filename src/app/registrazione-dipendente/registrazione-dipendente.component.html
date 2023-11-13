@@ -31,7 +31,7 @@
         <label for="nome">Nome:</label>
         <input
           #nome
-          class="form-control shadow"
+          class="form-control shadow capitalize"
           (input)="dimensioneInput(nome)"
           type="text"
           placeholder="Nome"
@@ -45,7 +45,7 @@
         <label for="cognome">Cognome:</label>
         <input
           #cognome
-          class="form-control shadow"
+          class="form-control shadow capitalize"
           (input)="dimensioneInput(cognome)"
           type="text"
           placeholder="Cognome"
@@ -59,15 +59,25 @@
         <label for="email">Email Aziendale:</label>
         <input
           #email
-          class="form-control shadow"
-          (input)="dimensioneInput(email)"
+          class="form-control shadow lower-case"
+          (input)="dimensioneInput(email); validateEmail()"
           type="email"
           placeholder="nome.cognome@proconsul-group.com"
-          name=" email "
+          name="email"
           id="email"
           required
           [(ngModel)]="dipendente.email"
         />
+        <div
+          *ngIf="showMessage === 'email'"
+          style="
+            font-size: 1vw !important;
+            color: rgb(142, 31, 31);
+            font-weight: bold;
+          "
+        >
+          {{ message }}
+        </div>
 
         <!-- password-->
         <div class="form-group">
@@ -134,7 +144,7 @@
         <label for=" luogo di nascita">Luogo di Nascita:</label>
         <input
           #luogo
-          class="form-control shadow"
+          class="form-control shadow capitalize"
           (input)="dimensioneInput(luogo)"
           type="text"
           placeholder="Luogo di Nascita"
@@ -162,7 +172,7 @@
         <label for="cittaResidenza">Città di Residenza:</label>
         <input
           #citta
-          class="form-control shadow"
+          class="form-control shadow capitalize"
           (input)="dimensioneInput(citta)"
           type="text"
           placeholder="Città di Residenza"
@@ -232,7 +242,7 @@
               height: 2.2vw;
             "
           >
-            SALVA
+            Registrati
           </button>
         </div>
       </div>
