@@ -18,12 +18,20 @@ export class WelcomeDipendenteComponent {
   ) {}
 
   ngOnInit() {
-    if (this.dipendenteService.getRuolo() !== '') {
+
+
+    if (this.dipendenteService.getRuolo() !== 'dipendente' ||
+    this.dipendenteService.isScaduto()) {
+
       this.router.navigate(['/welcome']);
     }
+
     this.dipendenteNome = this.dipendenteService.getNome();
     let currentDate: Date = new Date();
     this.time = currentDate.getHours() % 24;
-    console.log(this.time);
+    
+    console.log("pippo");
+    
+
   }
 }

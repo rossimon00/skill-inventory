@@ -68,7 +68,8 @@ export class AccountDipendenteComponent {
   }
 
   ngOnInit() {
-    if (this.dipendenteService.getRuolo() !== '') {
+    if (this.dipendenteService.getRuolo() !== 'dipendente' || 
+    this.dipendenteService.isScaduto()) {
       this.router.navigate(['/welcome']);
     }
     this.vero();

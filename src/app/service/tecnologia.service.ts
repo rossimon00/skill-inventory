@@ -26,6 +26,27 @@ export class TecnologiaService {
     localStorage.setItem('ruolo', ruolo);
   }
 
+  setScadenza(scadenza:string) {
+    localStorage.setItem('scadenza', scadenza)
+  }
+
+  getScadenza(): Date {
+
+    let scadenza :string = localStorage.getItem('scadenza')!;
+    
+    let scadenzaData: Date = new Date(Number(scadenza)*1000)
+    let data: Date = new Date()
+    
+    return scadenzaData
+
+  }
+
+  isScaduto(): boolean {
+
+    return this.getScadenza() < new Date()
+
+  }
+
   getRuolo(): string | null {
     let ruolo = localStorage.getItem('ruolo');
     return ruolo;

@@ -45,31 +45,28 @@ export class RegistrazioneDipendenteComponent {
     var data = new Date();
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
-    console.log(data);
     const currentDay = data.getDate();
-    console.log(currentDay);
 
     this.minDate = new Date(currentYear - 70, currentMonth - 0, currentDay);
     this.maxDate = new Date(currentYear - 18, currentMonth - 0, currentDay);
   }
 
   onSubmit(): void {
-    console.log(this.dipendente);
-
     this.dipendenteService.registraDipendente(this.dipendente).subscribe({
       next: (data) => {
         alert('Registrazione avvenuta correttamente');
         this.router.navigate(['/login']);
-        console.log(data);
       },
       error: (error) => {
-        console.log(error);
         alert('Registrazione non riuscita');
       },
     });
   }
 
   ngOnInit() {
+
+    this.dipendenteService.setToken("")
+
     this.campi.forEach((id) => {
       this.inserimento = new Inserimento(id, false);
       this.inputs.push(this.inserimento);
@@ -93,8 +90,6 @@ export class RegistrazioneDipendenteComponent {
   }
 
   dimensioneInput(boxinput: HTMLInputElement): void {
-    console.log(boxinput.id);
-    console.log('valore i' + this.inserimento.corretto);
 
     if (boxinput.id == 'codiceFiscale') {
       this.dimensione = ' di 16 caratteri ';
@@ -149,14 +144,12 @@ export class RegistrazioneDipendenteComponent {
     if (this.inserimento.corretto == false) {
       this.message = boxinput.name + 'deve essere ' + this.dimensione;
     }
-    console.log(boxinput.value.length);
 
     this.inputs.forEach((input) => {
       if (input.name == boxinput.id) {
         input.corretto = this.inserimento.corretto;
         this.showMessage = input.name;
       }
-      console.log(this.inputs[9].name);
     });
 
     this.controlloGiustizia();

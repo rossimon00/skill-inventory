@@ -17,7 +17,9 @@ export class LoginDipendenteComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dipendenteService.setToken('')
+  }
 
   onSubmit(): void {
     console.log(this.dipendente);
@@ -33,6 +35,9 @@ export class LoginDipendenteComponent implements OnInit {
         this.dipendenteNome = JSON.stringify(decoded);
         let jsonObject = JSON.parse(this.dipendenteNome);
         this.dipendenteService.setNome(jsonObject.nome);
+        this.dipendenteService.setScadenza(jsonObject.exp)
+        
+        
       },
       error: (error) => {
         console.log(error);

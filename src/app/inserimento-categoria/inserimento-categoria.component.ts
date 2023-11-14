@@ -21,7 +21,8 @@ export class InserimentoCategoriaComponent {
 
   ngOnInit() {
     if (
-      this.tecnologiaService.getRuolo() !== 'admin' 
+      this.tecnologiaService.getRuolo() !== 'admin' ||
+      this.tecnologiaService.isScaduto()
     ) {
       this.router.navigate(['/welcome']);
     }

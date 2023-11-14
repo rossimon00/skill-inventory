@@ -18,17 +18,17 @@ export class LoginHrComponent {
     private dipendenteService: TecnologiaService,
     private router: Router
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dipendenteService.setToken("")
+  }
 
   onSubmit(): void {
-    console.log(this.utente);
     this.dipendenteService.loginHr(this.utente).subscribe({
       next: (data) => {
         this.dipendenteService.setToken(data.token);
         this.router.navigate(['/welcome-hr']);
       },
       error: (error) => {
-        console.log(error);
         alert('Credenziali errate o account non esistente');
       },
     });

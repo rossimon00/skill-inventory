@@ -53,7 +53,8 @@ export class ListaUtentiHrComponent {
   }
 
   ngOnInit(): void {
-    if (this.listaUtentiHrService.getRuolo() !== 'admin') {
+    if (this.listaUtentiHrService.getRuolo() !== 'admin' ||
+    this.listaUtentiHrService.isScaduto()) {
       this.router.navigate(['/welcome']);
     }
     this.vediListaUtentiHr();

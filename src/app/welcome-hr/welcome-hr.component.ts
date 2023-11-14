@@ -21,8 +21,9 @@ export class WelcomeHrComponent {
 
   ngOnInit() {
     if (
-      this.dipendenteService.getRuolo() !== 'admin' ||
-      this.dipendenteService.getRuolo() !== 'user'
+      this.dipendenteService.getRuolo() === 'dipendente' ||
+      this.dipendenteService.getRuolo() === '' ||
+      this.dipendenteService.isScaduto()
     ) {
       this.router.navigate(['/welcome']);
     }

@@ -16,14 +16,15 @@ export class WelcomeComponent {
 
   ngOnInit() {
 
-    
-    if (this.service.getToken() !== "") {
+  if(!this.service.isScaduto()){
 
+    if (this.service.getToken() !== "") {
+  
       const token = JSON.stringify(this.service.getToken());
       const decoded = jwtDecode(token);
       this.dipendenteNome = JSON.stringify(decoded);
       
-      if (this.dipendenteNome.includes("admin") || this.dipendenteNome.includes("user"))
+      if (this.service.getRuolo() === "admin" || this.service.getRuolo() === "user")
         this.router.navigate(['/welcome-hr']);
   
       else
@@ -31,6 +32,8 @@ export class WelcomeComponent {
       
     }
     
+  }
+
   }
 
 }

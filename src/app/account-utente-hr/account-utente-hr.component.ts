@@ -39,7 +39,8 @@ export class AccountUtenteHrComponent {
   ) {}
 
   ngOnInit() {
-    if (this.utenteHrService.getRuolo() !== 'admin') {
+    if (this.utenteHrService.getRuolo() !== 'admin' ||
+    this.utenteHrService.isScaduto()) {
       this.router.navigate(['/welcome']);
     }
 
@@ -57,8 +58,6 @@ export class AccountUtenteHrComponent {
           (this.utenteHr.email = value.utenteHR.email),
           (this.messaggio = value.utenteHR.password);
       });
-
-    console.log('Utente ' + this.utenteHr.ruolo);
   }
 
   vero() {

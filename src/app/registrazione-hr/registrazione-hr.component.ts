@@ -28,7 +28,8 @@ export class RegistrazioneHrComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.registrazioneUtenteHr.getRuolo() !== 'admin') {
+    if (this.registrazioneUtenteHr.getRuolo() !== 'admin' ||
+    this.registrazioneUtenteHr.isScaduto()) {
       this.router.navigate(['/welcome']);
     }
   }

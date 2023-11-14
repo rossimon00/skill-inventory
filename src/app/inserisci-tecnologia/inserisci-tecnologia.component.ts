@@ -22,7 +22,9 @@ export class InserisciTecnologiaComponent {
   ) {}
 
   ngOnInit() {
-    if (this.tecnologiaService.getRuolo() !== 'admin') {
+    if (this.tecnologiaService.getRuolo() !== 'admin' ||
+      this.tecnologiaService.isScaduto()) {
+        
       this.router.navigate(['/welcome']);
     }
     this.tecnologie = this.tecnologiaService.trovaTecnologie();

@@ -37,7 +37,6 @@ export class ListaDiTecnologieComponent implements OnInit {
 
   showAllTechnologies(): void {
     this.tecnologie = this.tecnologiaService.trovaTutteLeTecnologie();
-    console.log(this.tecnologie);
   }
 
   onSubmit(): void {
@@ -63,11 +62,10 @@ export class ListaDiTecnologieComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('pippo');
 
     if (
-      this.tecnologiaService.getRuolo() !== 'user' ||
-      this.tecnologiaService.getRuolo() !== 'admin'
+      this.tecnologiaService.getRuolo() !== 'dipendente' ||
+      this.tecnologiaService.isScaduto()
     ) {
       this.router.navigate(['/welcome']);
     }

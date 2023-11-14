@@ -27,8 +27,9 @@ export class RicercaDipendentiComponent {
 
   ngOnInit(): void {
     if (
-      this.dipendentiService.getRuolo() !== 'user' ||
-      this.dipendentiService.getRuolo() !== 'admin'
+      this.dipendentiService.getRuolo() === 'dipendente' ||
+      this.dipendentiService.getRuolo() === '' ||
+      this.dipendentiService.isScaduto()
     ) {
       this.router.navigate(['/welcome']);
     }

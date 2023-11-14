@@ -49,8 +49,9 @@ export class ListaCategorieComponent implements OnInit {
 
   ngOnInit(): void {
     if (
-      this.tecnologiaDipendenteService.getRuolo() === 'user' ||
-      this.tecnologiaDipendenteService.getRuolo() === 'admin'
+      this.tecnologiaDipendenteService.getRuolo() === 'dipendente' ||
+      this.tecnologiaDipendenteService.getRuolo() === '' ||
+      this.tecnologiaDipendenteService.isScaduto()
     ) {
       this.router.navigate(['/welcome']);
     }
