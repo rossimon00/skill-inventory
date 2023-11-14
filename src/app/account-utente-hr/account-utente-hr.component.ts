@@ -45,12 +45,10 @@ export class AccountUtenteHrComponent {
     }
 
     this.email = this.route.snapshot.params['email'];
-    console.log('email: ' + this.email);
 
     this.utenteHrService
       .trovaUtenteHr(new UtenteHREmail(this.email))
       .subscribe((value) => {
-        console.log(value.utenteHR);
 
         (this.utenteHr.ruolo = value.utenteHR.ruolo),
           (this.utenteHr.nome = value.utenteHR.nome),
@@ -69,12 +67,18 @@ export class AccountUtenteHrComponent {
     } else {
       this.verita = false;
     }
-    console.log(this.confermaPassword + ' a ' + this.nuovaPassword);
+
   }
 
   onSubmit(): void {
     if (this.utenteHr.password === '') {
       this.utenteHr.password = this.messaggio;
+    }
+
+    if (this.confermaPassword !== this.nuovaPassword 
+      || (this.confermaPassword === '' || this.nuovaPassword === '')) {
+      alert('Nuova password e conferma nuova password devono essere uguali e non vuote');
+      return;
     }
 
     let jsonDipendente = JSON.stringify(this.utenteHr);
@@ -84,16 +88,12 @@ export class AccountUtenteHrComponent {
       ',"nuovaPassword":"' + this.nuovaPassword + '"}'
     );
 
-    console.log('bbbbbbbbaaa ' + jsonDipendente);
-
     this.utenteHrService.modificaUtenteHR(jsonDipendente).subscribe({
       next: (data) => {
         alert('Modifica avvenuta con successo');
-        console.log(data);
         this.utenteHrService.setNome(this.utenteHr.nome);
       },
       error: (error) => {
-        console.log(error);
         alert('Modifica fallita');
       },
     });

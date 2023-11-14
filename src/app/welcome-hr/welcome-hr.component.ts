@@ -21,6 +21,8 @@ export class WelcomeHrComponent {
 
   ngOnInit() {
 
+    this.utenteRuolo = this.dipendenteService.getRuolo()
+
     console.log(this.dipendenteService.getRuolo());
     console.log(this.dipendenteService.isScaduto());
     console.log(this.dipendenteService.getScadenza());

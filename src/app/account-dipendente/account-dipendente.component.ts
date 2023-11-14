@@ -44,8 +44,9 @@ export class AccountDipendenteComponent {
       this.dipendente.password = this.messaggio;
     }
 
-    if (this.confermaPassword !== this.nuovaPassword) {
-      alert('Nuova password e conferma nuova password devono essere uguali');
+    if (this.confermaPassword !== this.nuovaPassword 
+      || (this.confermaPassword === '' || this.nuovaPassword === '')) {
+      alert('Nuova password e conferma nuova password devono essere uguali e non vuote');
       return;
     }
 
