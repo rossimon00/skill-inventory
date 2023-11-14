@@ -1,12 +1,6 @@
 img {
   width: 40%;
-
   height: auto;
-}
-
-.logout:hover {
-  text-decoration: underline !important;
-  color: white;
 }
 
 .logout {
