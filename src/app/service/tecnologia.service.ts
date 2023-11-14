@@ -35,7 +35,6 @@ export class TecnologiaService {
     let scadenza :string = localStorage.getItem('scadenza')!;
     
     let scadenzaData: Date = new Date(Number(scadenza)*1000)
-    let data: Date = new Date()
     
     return scadenzaData
 

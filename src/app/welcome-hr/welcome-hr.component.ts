@@ -20,24 +20,23 @@ export class WelcomeHrComponent {
   ) {}
 
   ngOnInit() {
+
+    console.log(this.dipendenteService.getRuolo());
+    console.log(this.dipendenteService.isScaduto());
+    console.log(this.dipendenteService.getScadenza());
+    
+
     if (
       this.dipendenteService.getRuolo() === 'dipendente' ||
       this.dipendenteService.getRuolo() === '' ||
       this.dipendenteService.isScaduto()
     ) {
+      
       this.router.navigate(['/welcome']);
     }
 
-    const token = JSON.stringify(this.dipendenteService.getToken());
-    const decoded = jwtDecode(token);
-    this.dipendenteNome = JSON.stringify(decoded);
-    let jsonObject = JSON.parse(this.dipendenteNome);
-    this.dipendenteService.setNome(jsonObject.nome);
-    this.dipendenteService.setRuolo(jsonObject.ruolo);
-
-    this.utenteNome = this.dipendenteService.getNome();
-    this.utenteRuolo = this.dipendenteService.getRuolo();
-
+    this.utenteNome = this.dipendenteService.getNome()
+  
     let currentDate: Date = new Date();
     this.time = currentDate.getHours() % 24;
   }
